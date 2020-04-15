@@ -18,7 +18,12 @@ package com.github.zabetak.query;
 
 import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.document.NumericDocValuesField;
-import org.apache.lucene.search.*;
+import org.apache.lucene.search.DocValuesFieldExistsQuery;
+import org.apache.lucene.search.MatchAllDocsQuery;
+import org.apache.lucene.search.Query;
+
+import static com.github.zabetak.query.QueryUtils.minus;
+import static com.github.zabetak.query.QueryUtils.or;
 
 public enum NotEqualIntQueryFactory {
     Q0 {
@@ -85,18 +90,4 @@ public enum NotEqualIntQueryFactory {
     };
 
     public abstract Query create(String fieldName, int value);
-
-    private static Query minus(Query must, Query mustNot) {
-        BooleanQuery.Builder builder = new BooleanQuery.Builder();
-        builder.add(must, BooleanClause.Occur.MUST);
-        builder.add(mustNot, BooleanClause.Occur.MUST_NOT);
-        return builder.build();
-    }
-
-    private static Query or(Query... queries) {
-        BooleanQuery.Builder builder = new BooleanQuery.Builder();
-        for (Query q : queries)
-            builder.add(q, BooleanClause.Occur.SHOULD);
-        return builder.build();
-    }
 }

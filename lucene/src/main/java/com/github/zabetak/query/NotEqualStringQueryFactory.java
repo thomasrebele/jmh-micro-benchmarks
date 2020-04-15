@@ -21,6 +21,9 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.search.*;
 import org.apache.lucene.util.BytesRef;
 
+import static com.github.zabetak.query.QueryUtils.minus;
+import static com.github.zabetak.query.QueryUtils.or;
+
 /**
  * A factory creating Lucene queries for performing not equal comparisons on string fields.
  * <p>
@@ -85,17 +88,4 @@ public enum NotEqualStringQueryFactory {
 
     public abstract Query create(String fieldName, String value);
 
-    private static Query minus(Query must, Query mustNot) {
-        BooleanQuery.Builder builder = new BooleanQuery.Builder();
-        builder.add(must, BooleanClause.Occur.MUST);
-        builder.add(mustNot, BooleanClause.Occur.MUST_NOT);
-        return builder.build();
-    }
-
-    private static Query or(Query... queries) {
-        BooleanQuery.Builder builder = new BooleanQuery.Builder();
-        for (Query q : queries)
-            builder.add(q, BooleanClause.Occur.SHOULD);
-        return builder.build();
-    }
 }
