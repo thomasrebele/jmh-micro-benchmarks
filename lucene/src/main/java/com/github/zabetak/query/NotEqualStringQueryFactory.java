@@ -46,10 +46,7 @@ public enum NotEqualStringQueryFactory {
         public Query create(String fieldName, String value) {
             Query eq = new TermQuery(new Term(fieldName, value));
             Query notNull = new WildcardQuery(new Term(fieldName, "*"));
-            BooleanQuery.Builder builder = new BooleanQuery.Builder();
-            builder.add(notNull, BooleanClause.Occur.MUST);
-            builder.add(eq, BooleanClause.Occur.MUST_NOT);
-            return builder.build();
+            return minus(notNull, eq);
         }
     },
     Q2 {
@@ -57,10 +54,7 @@ public enum NotEqualStringQueryFactory {
         public Query create(String fieldName, String value) {
             Query eq = new TermQuery(new Term(fieldName, value));
             Query notNull = new DocValuesFieldExistsQuery(fieldName);
-            BooleanQuery.Builder builder = new BooleanQuery.Builder();
-            builder.add(notNull, BooleanClause.Occur.MUST);
-            builder.add(eq, BooleanClause.Occur.MUST_NOT);
-            return builder.build();
+            return minus(notNull, eq);
         }
     },
     Q3 {
