@@ -1,0 +1,120 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.github.zabetak.query;
+
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.SortedDocValuesField;
+import org.apache.lucene.document.StringField;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.util.BytesRef;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+public class NotEqualStringQueryFactoryTest {
+    private static final String FIELD_NAME = "firstName";
+
+    @Test
+    public void testCorrectResults() throws IOException {
+        Path indexPath = Paths.get(System.getProperty("java.io.tmpdir"), "jmh-lucene-indexes",
+                NotEqualStringQueryFactoryTest.class.getSimpleName());
+        try (Directory dir = FSDirectory.open(indexPath)) {
+            Analyzer analyzer = new StandardAnalyzer();
+            IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
+            iwc.setOpenMode(IndexWriterConfig.OpenMode.CREATE);
+            try (IndexWriter writer = new IndexWriter(dir, iwc)) {
+                writer.addDocument(new Document());
+                writer.addDocument(newDocument(""));
+                writer.addDocument(newDocument("Victor"));
+                writer.addDocument(newDocument("Victor"));
+                writer.addDocument(newDocument("Alex"));
+                writer.commit();
+            }
+            try (IndexReader reader = DirectoryReader.open(dir)) {
+                IndexSearcher searcher = new IndexSearcher(reader);
+                for (NotEqualStringQueryFactory factory : NotEqualStringQueryFactory.values()) {
+                    Query q = factory.create(FIELD_NAME, "Victor");
+                    TopDocs matches = searcher.search(q, 5);
+                    assertThat(matches.scoreDocs.length, is(2));
+                    assertThat(matches.scoreDocs[0].doc, is(1));
+                    assertThat(matches.scoreDocs[1].doc, is(4));
+                }
+            }
+        }
+    }
+
+    @Test
+    public void testQ0CorrectQuery() {
+        Query q = NotEqualStringQueryFactory.Q0.create(FIELD_NAME, "Victor");
+        assertThat(q.toString(), is("+*:* -(firstName:Victor (+*:* -firstName:*))"));
+    }
+
+    @Test
+    public void testQ1CorrectQuery() {
+        Query q = NotEqualStringQueryFactory.Q1.create(FIELD_NAME, "Victor");
+        assertThat(q.toString(), is("+firstName:* -firstName:Victor"));
+    }
+
+    @Test
+    public void testQ2CorrectQuery() {
+        Query q = NotEqualStringQueryFactory.Q2.create(FIELD_NAME, "Victor");
+        assertThat(q.toString(), is("+DocValuesFieldExistsQuery [field=firstName] -firstName:Victor"));
+    }
+
+    @Test
+    public void testQ3CorrectQuery() {
+        Query q = NotEqualStringQueryFactory.Q3.create(FIELD_NAME, "Victor");
+        assertThat(q.toString(), is("!firstName:Victor"));
+    }
+
+    @Test
+    public void testQ4CorrectQuery() {
+        Query q = NotEqualStringQueryFactory.Q4.create(FIELD_NAME, "Victor");
+        assertThat(q.toString(), is("firstName:!=[56 69 63 74 6f 72]"));
+    }
+
+    @Test
+    public void testQ5CorrectQuery() {
+        Query q = NotEqualStringQueryFactory.Q5.create(FIELD_NAME, "Victor");
+        assertThat(q.toString(), is("firstName:{* TO [56 69 63 74 6f 72]} firstName:{[56 69 63 74 6f 72] TO *}"));
+    }
+
+    private Document newDocument(String fieldValue) {
+        Document doc = new Document();
+        StringField fieldA = new StringField(FIELD_NAME, fieldValue, Field.Store.YES);
+        SortedDocValuesField fieldB = new SortedDocValuesField(FIELD_NAME, new BytesRef(fieldValue));
+        doc.add(fieldA);
+        doc.add(fieldB);
+        return doc;
+    }
+}
