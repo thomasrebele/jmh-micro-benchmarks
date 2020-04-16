@@ -74,19 +74,12 @@ public class NotEqualOperatorOnStringBenchmark {
         }
     }
 
-    public enum ResultMode {
-        ALL,
-        TOPK
-    }
-
     @State(Scope.Benchmark)
     public static class IndexState {
         @Param({"1000000", "10000000", "100000000"})
         public int docNumber;
         @Param({"10"})
         public int nullPercent;
-        @Param
-        public ResultMode mode;
 
         Path indexPath;
 
@@ -167,19 +160,6 @@ public class NotEqualOperatorOnStringBenchmark {
             }
             throw new AssertionError();
         }
-
-        public void execute(Query q) throws IOException {
-            switch (mode) {
-                case ALL:
-                    searcher.count(q);
-                    break;
-                case TOPK:
-                    searcher.search(q, TOP_K);
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-        }
     }
 
     @State(Scope.Benchmark)
@@ -188,6 +168,8 @@ public class NotEqualOperatorOnStringBenchmark {
         public NotEqualStringQueryFactory queryFactory;
         @Param
         public QueryField field;
+        @Param({"ALL", "TOP_K"})
+        public SearchMode searchMode;
     }
 
 
@@ -195,7 +177,7 @@ public class NotEqualOperatorOnStringBenchmark {
     public void execute(QueryState qState, IndexState iState) throws IOException {
         QueryField field = qState.field;
         Query q = qState.queryFactory.create(field.fieldName, iState.fieldValue(field));
-        iState.execute(q);
+        qState.searchMode.execute(iState.searcher, q, null, TOP_K);
     }
 
     public static void main(String[] args) throws RunnerException {
