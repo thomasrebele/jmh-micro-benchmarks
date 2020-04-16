@@ -90,13 +90,70 @@ Using only `NumericDocValuesField`.
 
 ## Results 
 
-### Queries on high-cardinality fields
+This section reports the average time in milliseconds of creating and executing each query 5 
+times over an index with 1M, 10M, and 100M documents.
+
+We report the times over high-cardinality and low-cardinality fields separately. 
+
+Furthermore, we distinguish between queries that go over all matches and queries that go over
+only the TOP-10 in document order.
  
-|Query|1000000|10000000 | 100000000 |
+### Queries on high-cardinality fields
+
+#### All matches
+
+|Query|    1M|       10M|       100M|
 |--|---------|--------- |-----------|
-|Q0|	5.394|	369.586 |	3952.192|
-|Q1|	4.561|	78.140  |	797.092 |
-|Q2|	4.741|	79.278  |	819.515 |
-|Q3|	3.777|	311.542 |	2349.370|
-|Q4|	5.183|	52.181  |	527.773 |
-|Q5|	5.579|	194.481 |	1822.767|
+|Q0|	5.394|	 369.586|	3952.192|
+|Q1|	4.561|	  78.140|	 797.092|
+|Q2|	4.741|	  79.278|	 819.515|
+|Q3|	3.777|	 311.542|	2349.370|
+|Q4|	5.183|	  52.181|	 527.773|
+|Q5|	5.579|	 194.481|	1822.767|
+
+The fastest query is Q4 followed closely by Q1, and Q2. 
+
+#### TOP-10 matches
+
+|Query|	    1M|	    10M|        100M|
+|--|----------|--------|------------|
+|Q0|	 0.026|	 48.637|	 481.117|
+|Q1|	 4.529|	 47.135|	 577.044|
+|Q2|	23.800|	228.169|	2296.618|
+|Q3|	45.916|	423.906|	4159.621|
+|Q4|	 0.019|	  0.202|	   2.839|
+|Q5|	 0.028|	  0.167|	   1.939|
+
+The fastest queries are Q4, and Q5.
+
+### Queries on low-cardinality fields
+
+#### All matches
+
+|Query|	   1M|	    10M|	    100M|
+|--|----------|--------|------------|
+|Q0|	5.421|	316.957|	3136.672|
+|Q1|	5.092|	 56.783|	 570.193|
+|Q2|	5.613|	 79.070|	 778.146|
+|Q3|	3.777|	295.749|	2478.469|
+|Q4|	6.055|	 48.745|	 489.782|
+|Q5|	5.647|	167.275|	1710.167|
+
+The fastest query is Q4 followed closely by Q1, and Q2. 
+
+#### TOP-10 matches
+
+|Query|	    1M|	    10M|	    100M|
+|Q0|	 0.030|	 18.769|	 185.562|
+|Q1|	 1.381|	 18.030|	 180.196|
+|Q2|	23.472|	224.569|	2232.488|
+|Q3|	39.989|	411.295|	4121.313|
+|Q4|	 0.021|	  4.248|	  46.226|
+|Q5|	 0.028|	  0.157|	   1.649|
+
+The fastest query is Q5 followed by Q4.
+
+### Summary
+
+Overall, and since we assumed that we have all fields available the best query is Q4 since it
+outperforms the others in most cases and some times by orders of magnitude.
