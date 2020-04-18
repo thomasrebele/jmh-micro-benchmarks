@@ -19,7 +19,9 @@ package com.github.zabetak.benchmark;
 import com.github.zabetak.indexer.IndexGenerator;
 import com.github.zabetak.indexer.IndexPathBuilder;
 import com.github.zabetak.indexer.RandomIntValueFieldFactory;
+import com.github.zabetak.query.IsNullIntQueryFactory;
 import com.github.zabetak.query.NotEqualIntQueryFactory;
+import com.github.zabetak.query.NotNullIntQueryFactory;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.IntPoint;
 import org.apache.lucene.document.NumericDocValuesField;
@@ -40,13 +42,13 @@ import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 /**
- * A benchmark of various ways to evaluate the SQL not equal operator ({@code <>}) on integer values
- * residing in Lucene indexes.
- * <p>
- * The not equal comparison strictly follows the SQL semantics, that is {@code field <> 5} returns
- * all documents with values that are not equal to 5 but not those documents that do not have a
- * value for this field; in other words excluding {@code null} values.
- * </p>
+ * A benchmark of various ways to evaluate the following SQL operators:
+ * <ul>
+ *     <li>NOT EQUAL ({@code <>}, {@code !=})</li>
+ *     <li>IS NULL</li>
+ *     <li>IS NOT NULL</li>
+ * </ul>
+ * on integer values residing in Lucene indexes.
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -54,7 +56,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 5, time = 1)
 @Timeout(time = 1, timeUnit = TimeUnit.MINUTES)
 @Fork(1)
-public class NotEqualOperatorOnIntBenchmark {
+public class SqlOperatorOnIntBenchmark {
 
     private static final int TOP_K = 10;
     private static final int AGE_LOWER_BOUND = 0;
@@ -77,7 +79,7 @@ public class NotEqualOperatorOnIntBenchmark {
     public static class IndexState {
         @Param({"1000000", "10000000", "100000000"})
         public int docNumber;
-        @Param({"10"})
+        @Param({"10", "90"})
         public int nullPercent;
 
         Path indexPath;
@@ -85,7 +87,7 @@ public class NotEqualOperatorOnIntBenchmark {
         @Setup(Level.Trial)
         public void setupIndex() throws IOException {
             IndexPathBuilder pathBuilder =
-                    new IndexPathBuilder(NotEqualOperatorOnIntBenchmark.class);
+                    new IndexPathBuilder(SqlOperatorOnIntBenchmark.class);
             pathBuilder.setDocNumber(docNumber);
             pathBuilder.setNullPercent(nullPercent);
             indexPath = pathBuilder.build();
@@ -130,7 +132,6 @@ public class NotEqualOperatorOnIntBenchmark {
         private Integer ageValue;
 
         @Setup(Level.Iteration)
-
         public void setupSearcher() throws IOException {
             readerDir = FSDirectory.open(indexPath);
             reader = DirectoryReader.open(readerDir);
@@ -172,24 +173,69 @@ public class NotEqualOperatorOnIntBenchmark {
     }
 
     @State(Scope.Benchmark)
-    public static class QueryState {
+    public static class QueryTypeState {
         @Param
         public QueryField queryField;
-        @Param
-        public NotEqualIntQueryFactory queryFactory;
         @Param
         public SearchMode searchMode;
     }
 
+    @State(Scope.Benchmark)
+    public static class NotEqualState {
+        @Param
+        public NotEqualIntQueryFactory queryFactory;
+    }
+
+    @State(Scope.Benchmark)
+    public static class IsNotNullState {
+        @Param
+        public NotNullIntQueryFactory queryFactory;
+    }
+
+    @State(Scope.Benchmark)
+    public static class IsNullState {
+        @Param
+        public IsNullIntQueryFactory queryFactory;
+    }
+
+    /**
+     * Benchmark alternative ways to evaluate the NOT EQUAL operator.
+     *
+     * <p>
+     * The not equal comparison strictly follows the SQL semantics, that is {@code field <> 5}
+     * returns all documents with values that are not equal to 5 but not those documents that do not
+     * have a value for this field; in other words excluding {@code null} values.
+     * </p>
+     */
     @Benchmark
-    public void execute(QueryState qState, IndexState iState) throws IOException {
+    public void notEqual(NotEqualState notEqualState, QueryTypeState qState, IndexState iState) throws IOException {
         final QueryField field = qState.queryField;
-        Query q = qState.queryFactory.create(field.fieldName, iState.getValue(field));
+        Query q = notEqualState.queryFactory.create(field.fieldName, iState.getValue(field));
+        qState.searchMode.execute(iState.searcher, q, field.sort, TOP_K);
+    }
+
+    /**
+     * Benchmark alternative ways to evaluate the IS NOT NULL operator.
+     */
+    @Benchmark
+    public void isNotNull(IsNotNullState notNullState, QueryTypeState qState, IndexState iState) throws IOException {
+        final QueryField field = qState.queryField;
+        Query q = notNullState.queryFactory.create(field.fieldName);
+        qState.searchMode.execute(iState.searcher, q, field.sort, TOP_K);
+    }
+
+    /**
+     * Benchmark alternative ways to evaluate the IS NULL operator.
+     */
+    @Benchmark
+    public void isNull(IsNullState isNullState, QueryTypeState qState, IndexState iState) throws IOException {
+        final QueryField field = qState.queryField;
+        Query q = isNullState.queryFactory.create(field.fieldName);
         qState.searchMode.execute(iState.searcher, q, field.sort, TOP_K);
     }
 
     public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder().include(NotEqualOperatorOnIntBenchmark.class.getSimpleName())
+        Options opt = new OptionsBuilder().include(SqlOperatorOnIntBenchmark.class.getSimpleName())
                 .forks(1).build();
         new Runner(opt).run();
     }

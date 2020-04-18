@@ -40,6 +40,7 @@ public enum SearchMode {
                 break;
             case SORT_K:
                 searcher.search(q, k, sort);
+                break;
             default:
                 throw new AssertionError();
         }
