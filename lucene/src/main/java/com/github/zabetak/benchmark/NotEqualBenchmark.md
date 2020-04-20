@@ -17,23 +17,24 @@ limitations under the License.
 {% endcomment %}
 -->
 
-# Benchmark inequality queries in Lucene
+# Benchmark SQL operators in Lucene
 
-A benchmark of various ways to create and evaluate inequality queries, i.e., equivalent to the
-SQL not equal operator (`<>`) over Lucene indexes.
-
-The not equal comparison strictly follows the SQL semantics, that is `field <> 5` returns all
-documents with values that are not equal to 5 but not those documents that do not have a value for
-this field; in other words excluding `null` values.
+In this document, we present a benchmark with alternative ways to create and evaluate the following
+SQL operators:
+* NOT EQUAL (`<>`, `!=`);
+* IS NULL;
+* IS NOT NULL;
+over data residing in Lucene indexes.
 
 The experiments cover the cases of string and integer fields. The other numeric fields provided
 in Lucene should follow more or less the trends observed for the integer values.
 
-Note that the score of the documents is not needed in this context.
+Note that the score of the documents, which usually plays an important role in the context of
+information retrieval, is not present in most SQL use-cases.
 
-## Experimental setup
+The reported times are in milliseconds and it is the average of 5 iterations.
 
-### Index
+## Index setup
 
 In each experiment we create a single Lucene index comprised from two kind of fields: 
 * High-cardinality fields simulating use-cases where the number of values in the field are
@@ -68,7 +69,7 @@ High-cardinality fields are populated with integer values uniformly distributed 
 Low-cardinality fields are populated with integer values uniformly distributed in the range `0` to
 `110`. 
 
-#### String fields  
+### String fields  
 
 For string values we use the following types of Lucene fields:
 * `StringField`
@@ -80,15 +81,53 @@ the values mostly unique.
 
 Low-cardinality fields are populated with the string values `TRUE` and `FALSE` simulating a
 boolean column that is represented as a string.  
-     
-### Queries
 
-In the sequel, we present the queries that were used in these experiments as strings (using the
-`Query#toString()` method). 
+## Search mode
 
-### Queries on integer fields
+Lucene offers various search APIs accepting a query, which demonstrate different performance
+characteristics. In these experiments we focus on three common use cases.
 
-For presentation purposes, we assume that the SQL equivalent is `age <> 28`.
+### All matches
+
+Find all documents matching the query. 
+
+The search is performed via `IndexSearcher#search(Query, Collector)` method and passing in a
+collector that goes over all documents (`ScoreMode.COMPLETE_NO_SCORES`). In these experiments, we
+use a collector that does nothing with the matches. In practice, this collector is useless but it
+can provide a lower bound for the performance of the query. It is also straightforward way to
+compare the performance of the queries and respective indexes assuming that sooner or later all 
+matches need to be retrieved.    
+
+### TOP-10 matches
+
+Find all documents matching the query and return 10 with the highest score. 
+
+The search is performed via `IndexSearcher#search(Query, int)` method. This is a very common use
+-case in informational retrieval but less interesting in this setting where the score is not
+necessary.
+
+### Sort-10 matches
+
+Find all documents matching the query, sort them based on the value of a field used in the query
+and return the first 10. 
+
+The search is performed via `IndexSearcher#search(Query, int, Sort)` method. Roughly this 
+corresponds to an SQL query with an `ORDER BY` and `LIMIT` clause. These kind of queries appear 
+often in cases evolving stateless pagination.
+
+Note that if all matches need to be retrieved, then this method will always be slower compared to
+the one with the collector. Furthermore, the measurements are more biased since the execution time
+includes sort overhead. 
+
+## NOT EQUAL benchmark
+
+The operators strictly follow the SQL semantics. For instance, `age <> 28` returns all documents
+with values that are not equal to 28 but not those documents that do not have a value at all for
+this field; in other words excluding `null` values.
+ 
+### Integer fields
+
+#### Queries
 
 ##### Q0
 Using the `IntPoint` field.
@@ -114,6 +153,69 @@ Using both `NumericDocValuesField` and `IntPoint` field.
 Using only `NumericDocValuesField`.
 
     +DocValuesFieldExistsQuery [field=age] -age:[28 TO 28]
+
+#### Results
+ 
+##### High-cardinality
+
+###### All matches
+
+|Query|    1M|       10M|       100M|
+|--|---------|--------- |-----------|
+|Q0|	5.394|	 369.586|	3952.192|
+|Q1|	4.561|	  78.140|	 797.092|
+|Q2|	4.741|	  79.278|	 819.515|
+|Q3|	3.777|	 311.542|	2349.370|
+|Q4|	5.183|	  52.181|	 527.773|
+|Q5|	5.579|	 194.481|	1822.767|
+
+The fastest query is Q4 followed closely by Q1, and Q2. 
+
+###### TOP-10 matches
+
+|Query|	    1M|	    10M|        100M|
+|--|----------|--------|------------|
+|Q0|	 0.026|	 48.637|	 481.117|
+|Q1|	 4.529|	 47.135|	 577.044|
+|Q2|	23.800|	228.169|	2296.618|
+|Q3|	45.916|	423.906|	4159.621|
+|Q4|	 0.019|	  0.202|	   2.839|
+|Q5|	 0.028|	  0.167|	   1.939|
+
+The fastest queries are Q4, and Q5.
+
+##### Low-cardinality
+
+###### All matches
+
+|Query|	   1M|	    10M|	    100M|
+|--|----------|--------|------------|
+|Q0|	5.421|	316.957|	3136.672|
+|Q1|	5.092|	 56.783|	 570.193|
+|Q2|	5.613|	 79.070|	 778.146|
+|Q3|	3.777|	295.749|	2478.469|
+|Q4|	6.055|	 48.745|	 489.782|
+|Q5|	5.647|	167.275|	1710.167|
+
+The fastest query is Q4 followed closely by Q1, and Q2. 
+
+###### TOP-10 matches
+
+|Query|	    1M|	    10M|	    100M|
+|--|----------|--------|------------|
+|Q0|	 0.030|	 18.769|	 185.562|
+|Q1|	 1.381|	 18.030|	 180.196|
+|Q2|	23.472|	224.569|	2232.488|
+|Q3|	39.989|	411.295|	4121.313|
+|Q4|	 0.021|	  4.248|	  46.226|
+|Q5|	 0.028|	  0.157|	   1.649|
+
+The fastest query is Q5 followed by Q4.
+
+#### Summary
+
+Overall, and since we assumed that we have all fields available the best query is Q4 since it
+outperforms the others in most cases and some times by orders of magnitude.
 
 ### Queries on string fields
 
@@ -146,80 +248,6 @@ iterator over the doc values field.
 Using only `SortedDocValuesField`.
 
     firstName:{* TO [56 69 63 74 6f 72]} firstName:{[56 69 63 74 6f 72] TO *}
-
-
-## Results 
-
-This section reports the average time in milliseconds of creating and executing each query 5 
-times over an index with 1M, 10M, and 100M documents.
-
-We report the times over high-cardinality and low-cardinality fields separately. 
-
-Furthermore, we distinguish between queries that go over all matches and queries that go over
-only the TOP-10 in document order.
-
-### Results on integer fields
- 
-#### High-cardinality
-
-##### All matches
-
-|Query|    1M|       10M|       100M|
-|--|---------|--------- |-----------|
-|Q0|	5.394|	 369.586|	3952.192|
-|Q1|	4.561|	  78.140|	 797.092|
-|Q2|	4.741|	  79.278|	 819.515|
-|Q3|	3.777|	 311.542|	2349.370|
-|Q4|	5.183|	  52.181|	 527.773|
-|Q5|	5.579|	 194.481|	1822.767|
-
-The fastest query is Q4 followed closely by Q1, and Q2. 
-
-##### TOP-10 matches
-
-|Query|	    1M|	    10M|        100M|
-|--|----------|--------|------------|
-|Q0|	 0.026|	 48.637|	 481.117|
-|Q1|	 4.529|	 47.135|	 577.044|
-|Q2|	23.800|	228.169|	2296.618|
-|Q3|	45.916|	423.906|	4159.621|
-|Q4|	 0.019|	  0.202|	   2.839|
-|Q5|	 0.028|	  0.167|	   1.939|
-
-The fastest queries are Q4, and Q5.
-
-#### Low-cardinality
-
-##### All matches
-
-|Query|	   1M|	    10M|	    100M|
-|--|----------|--------|------------|
-|Q0|	5.421|	316.957|	3136.672|
-|Q1|	5.092|	 56.783|	 570.193|
-|Q2|	5.613|	 79.070|	 778.146|
-|Q3|	3.777|	295.749|	2478.469|
-|Q4|	6.055|	 48.745|	 489.782|
-|Q5|	5.647|	167.275|	1710.167|
-
-The fastest query is Q4 followed closely by Q1, and Q2. 
-
-##### TOP-10 matches
-
-|Query|	    1M|	    10M|	    100M|
-|--|----------|--------|------------|
-|Q0|	 0.030|	 18.769|	 185.562|
-|Q1|	 1.381|	 18.030|	 180.196|
-|Q2|	23.472|	224.569|	2232.488|
-|Q3|	39.989|	411.295|	4121.313|
-|Q4|	 0.021|	  4.248|	  46.226|
-|Q5|	 0.028|	  0.157|	   1.649|
-
-The fastest query is Q5 followed by Q4.
-
-#### Summary
-
-Overall, and since we assumed that we have all fields available the best query is Q4 since it
-outperforms the others in most cases and some times by orders of magnitude.
 
 ### Results on string fields
 
@@ -282,7 +310,6 @@ The fastest query is Q4 followed closely by Q2, and Q5.
 #### Summary
 
 Overall, the winner seems to be between Q2, and Q4, performing well in most 
-cases. The advantage of Q2 is that it does not require additional development
-since the involved queries are all provided in the official release of Lucene. 
-The disadvantage of Q2 compared to Q4 is that it requires the existence of two
-Lucene fields instead of one.   
+cases. The advantage of Q2 is that the involved queries are all provided in the official release of 
+Lucene. The disadvantage of Q2 is that it requires the existence of two Lucene fields instead of
+one.  
