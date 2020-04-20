@@ -16,9 +16,8 @@
  */
 package com.github.zabetak.benchmark;
 
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.Sort;
+import org.apache.lucene.index.LeafReaderContext;
+import org.apache.lucene.search.*;
 
 import java.io.IOException;
 
@@ -33,7 +32,7 @@ public enum SearchMode {
     public void execute(IndexSearcher searcher, Query q, Sort sort, int k) throws IOException {
         switch (this) {
             case ALL:
-                searcher.count(q);
+                searcher.search(q, ALL_MATCHES_COLLECTOR);
                 break;
             case TOP_K:
                 searcher.search(q, k);
@@ -45,4 +44,28 @@ public enum SearchMode {
                 throw new AssertionError();
         }
     }
+
+    private static final LeafCollector DO_NOTHING_LEAF_COLLECTOR = new LeafCollector() {
+        @Override
+        public void setScorer(Scorable scorer) throws IOException {
+
+        }
+
+        @Override
+        public void collect(int doc) throws IOException {
+
+        }
+    };
+
+    private static final Collector ALL_MATCHES_COLLECTOR = new Collector() {
+        @Override
+        public LeafCollector getLeafCollector(LeafReaderContext context) throws IOException {
+            return DO_NOTHING_LEAF_COLLECTOR;
+        }
+
+        @Override
+        public ScoreMode scoreMode() {
+            return ScoreMode.COMPLETE_NO_SCORES;
+        }
+    };
 }
