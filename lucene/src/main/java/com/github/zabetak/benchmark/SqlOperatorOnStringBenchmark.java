@@ -19,17 +19,16 @@ package com.github.zabetak.benchmark;
 import com.github.zabetak.indexer.IndexGenerator;
 import com.github.zabetak.indexer.IndexPathBuilder;
 import com.github.zabetak.indexer.RandomStringValueFieldFactory;
+import com.github.zabetak.query.IsNullStringQueryFactory;
 import com.github.zabetak.query.NotEqualStringQueryFactory;
+import com.github.zabetak.query.NotNullStringQueryFactory;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.SortedDocValuesField;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.Term;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.TopDocs;
-import org.apache.lucene.search.WildcardQuery;
+import org.apache.lucene.search.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.BytesRef;
@@ -44,13 +43,13 @@ import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
 /**
- * A benchmark of various ways to evaluate the SQL not equal operator ({@code <>}) on string values
- * residing in Lucene indexes.
- * <p>
- * The not equal comparison strictly follows the SQL semantics, that is {@code field <> 'Victor'}
- * returns all documents with values that are not equal to 'Victor' but not those documents that do
- * not have a value for this field; in other words excluding {@code null} values.
- * </p>
+ * A benchmark of various ways to evaluate the following SQL operators:
+ * <ul>
+ *     <li>NOT EQUAL ({@code <>}, {@code !=})</li>
+ *     <li>IS NULL</li>
+ *     <li>IS NOT NULL</li>
+ * </ul>
+ * on string values residing in Lucene indexes.
  */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
@@ -58,7 +57,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 5, time = 1)
 @Timeout(time = 1, timeUnit = TimeUnit.MINUTES)
 @Fork(1)
-public class NotEqualOperatorOnStringBenchmark {
+public class SqlOperatorOnStringBenchmark {
 
     private static final int PK_STRING_LENGTH = 20;
     private static final int TOP_K = 10;
@@ -68,9 +67,11 @@ public class NotEqualOperatorOnStringBenchmark {
         BOOL_STRING("bool_str_field");
 
         private final String fieldName;
+        private final Sort sort;
 
         QueryField(String fieldName) {
             this.fieldName = fieldName;
+            this.sort = new Sort(new SortField(fieldName, SortField.Type.STRING));
         }
     }
 
@@ -86,7 +87,7 @@ public class NotEqualOperatorOnStringBenchmark {
         @Setup(Level.Trial)
         public void setupIndex() throws IOException {
             IndexPathBuilder pathBuilder =
-                    new IndexPathBuilder(NotEqualOperatorOnStringBenchmark.class);
+                    new IndexPathBuilder(SqlOperatorOnStringBenchmark.class);
             pathBuilder.setDocNumber(docNumber);
             pathBuilder.setStringLength(PK_STRING_LENGTH);
             pathBuilder.setNullPercent(nullPercent);
@@ -163,25 +164,70 @@ public class NotEqualOperatorOnStringBenchmark {
     }
 
     @State(Scope.Benchmark)
-    public static class QueryState {
+    public static class QueryTypeState {
         @Param
-        public NotEqualStringQueryFactory queryFactory;
+        public QueryField queryField;
         @Param
-        public QueryField field;
-        @Param({"ALL", "TOP_K"})
         public SearchMode searchMode;
     }
 
+    @State(Scope.Benchmark)
+    public static class NotEqualState {
+        @Param
+        public NotEqualStringQueryFactory queryFactory;
+    }
 
+    @State(Scope.Benchmark)
+    public static class IsNotNullState {
+        @Param
+        public NotNullStringQueryFactory queryFactory;
+    }
+
+    @State(Scope.Benchmark)
+    public static class IsNullState {
+        @Param
+        public IsNullStringQueryFactory queryFactory;
+    }
+
+    /**
+     * Benchmark alternative ways to evaluate the NOT EQUAL operator.
+     *
+     * <p>
+     * The not equal comparison strictly follows the SQL semantics, that is {@code field <>
+     * 'Victor'} returns all documents with values that are not equal to 'Victor' but not those
+     * documents that do not have a value for this field; in other words excluding {@code null}
+     * values.
+     * </p>
+     */
     @Benchmark
-    public void execute(QueryState qState, IndexState iState) throws IOException {
-        QueryField field = qState.field;
-        Query q = qState.queryFactory.create(field.fieldName, iState.fieldValue(field));
-        qState.searchMode.execute(iState.searcher, q, null, TOP_K);
+    public void notEqual(NotEqualState notEqualState, QueryTypeState qState, IndexState iState) throws IOException {
+        QueryField field = qState.queryField;
+        Query q = notEqualState.queryFactory.create(field.fieldName, iState.fieldValue(field));
+        qState.searchMode.execute(iState.searcher, q, field.sort, TOP_K);
+    }
+
+    /**
+     * Benchmark alternative ways to evaluate the IS NOT NULL operator.
+     */
+    @Benchmark
+    public void isNotNull(IsNotNullState notNullState, QueryTypeState qState, IndexState iState) throws IOException {
+        QueryField field = qState.queryField;
+        Query q = notNullState.queryFactory.create(field.fieldName);
+        qState.searchMode.execute(iState.searcher, q, field.sort, TOP_K);
+    }
+
+    /**
+     * Benchmark alternative ways to evaluate the IS NULL operator.
+     */
+    @Benchmark
+    public void isNull(IsNullState nullState, QueryTypeState qState, IndexState iState) throws IOException {
+        QueryField field = qState.queryField;
+        Query q = nullState.queryFactory.create(field.fieldName);
+        qState.searchMode.execute(iState.searcher, q, field.sort, TOP_K);
     }
 
     public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder().include(NotEqualOperatorOnStringBenchmark.class.getSimpleName())
+        Options opt = new OptionsBuilder().include(SqlOperatorOnStringBenchmark.class.getSimpleName())
                 .forks(1).build();
         new Runner(opt).run();
     }
