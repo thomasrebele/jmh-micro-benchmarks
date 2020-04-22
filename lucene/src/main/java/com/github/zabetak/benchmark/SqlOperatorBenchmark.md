@@ -119,6 +119,120 @@ Note that if all matches need to be retrieved, then this method will always be s
 the one with the collector. Furthermore, the measurements are more biased since the execution time
 includes sort overhead. 
 
+## IS NOT NULL benchmark
+
+This section presents the experiments of creating and evaluating the `IS NOT NULL` operator.
+
+The `IS NOT NULL` operator on both kind of fields returns the same number of results (~90% of the
+total number of documents) since the percentage of null values is the same. 
+
+### Integer fields
+
+For the presentation of the Lucene queries, we assume the SQL query to be `age IS NOT NULL`.
+
+#### Queries
+
+##### Q0
+Using only `IntPoint` field.
+
+    age:[-2147483648 TO 2147483647]
+
+##### Q1
+Using only `NumericDocValues` field.
+
+    age:[-2147483648 TO 2147483647]
+
+##### Q2
+Using only `NumericDocValues` field.
+
+    DocValuesFieldExistsQuery [field=age]
+
+#### Results
+
+##### High-cardinality
+
+|Query|1M|10M|100M|
+|--|-----|-------|------|
+|Q0|4.112|79.519|806.568|
+|Q1|4.875|86.879|926.187|
+|Q2|4.966|42.635|548.517|
+
+##### Low-cardinality
+
+|Query|1M|10M|100M|
+|--|-----|-------|------|
+|Q0|4.008|50.934|511.893|
+|Q1|4.772|77.677|778.681|
+|Q2|5.107|42.711|548.465|
+
+#### Summary
+
+For 1M documents, all the queries perform roughly the same and the difference is in the order of
+nanoseconds.
+
+For 10M documents and more, the fastest query is Q2, and the slowest is Q1. Q2 relies on a pure
+iterator over all documents without additional comparisons as it happens to be the case for Q0, and
+Q1. 
+
+For low cardinality fields, Q0 performs better than Q2. Q0 uses a KD-tree, so one possible
+explanation is that all documents fall into the same bucket of the KD-tree. Due to this, the number
+of comparisons required to find the documents is minimal and thus insignificant compared to
+fetching and iterating through the matches.  
+
+### String fields
+
+For the presentation of the Lucene queries, we assume the SQL query to be `firstname IS NOT NULL`.
+
+#### Queries
+
+##### Q0
+Using only `StringField`.
+
+    firstName:*
+
+##### Q1
+Using only `SortedDocValuesField`.
+
+    firstName:{* TO *}
+
+##### Q2 
+Using only `SortedDocValuesField`.
+
+    DocValuesFieldExistsQuery [field=firstName]
+#### Results
+ 
+##### High-cardinality
+
+|Query|1M|10M|100M|
+|--|-----|-------|--------|
+|Q0|6.289|445.478|4409.846|
+|Q1|3.845|51.017|484.860|
+|Q2|4.855|44.436|472.200|
+
+##### Low-cardinality
+
+|Query|1M|10M|100M|
+|--|-----|-------|--------|
+|Q0|4.466|76.463|747.504|
+|Q1|3.805|73.675|461.464|
+|Q2|3.877|43.563|468.615|
+
+#### Summary
+
+The fastest query is Q2.
+
+For high-cardinality fields Q2, and Q1, are 9x faster than Q0. Roughly this means that 
+traversing the inverse index is slower than sequentially scanning all documents using the doc
+value storage.
+  
+For low-cardinality fields the difference is significantly smaller. The fact that we have only
+two distinct values means that the inverse index has only two entries with a long list of postings.
+Essentially this makes all queries behave exactly like a sequential scan so we observe that the
+performance of Q0 drops to the same order of magnitude with Q1, and Q2.
+
+Last we can observe that the performance of Q2 is stable between high/low cardinality fields and
+depends only on the number of matching documents.  
+
 ## NOT EQUAL benchmark
 
 The operators strictly follow the SQL semantics. For instance, `age <> 28` returns all documents
