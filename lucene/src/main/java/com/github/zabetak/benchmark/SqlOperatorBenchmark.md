@@ -24,6 +24,7 @@ SQL operators:
 * NOT EQUAL (`<>`, `!=`);
 * IS NULL;
 * IS NOT NULL;
+
 over data residing in Lucene indexes.
 
 The experiments cover the cases of string and integer fields. The other numeric fields provided
@@ -34,7 +35,16 @@ information retrieval, is not present in most SQL use-cases.
 
 The reported times are in milliseconds and it is the average of 5 iterations.
 
-TODO: Mention about caches and system
+Lucene reads/writes data directly to/from the filesystem. There are data structures and caches
+that remain on the JVM Heap but most of the data remain off heap. As in other data intensive
+processes (DBMS) data can be found in the filesystem caches. There is no effort to clear the
+caches before/after each experiment so the numbers reported here are with hot caches.
+
+## System setup
+
+The system used to perform this experiments has an Intel Core i7-8850H CPU at 2.60GHz × 12, 64GB
+of DDR4 ram, a Samsung NVMe SSD disk. The OS is Ubuntu 19.10, and the JDK used is 1.8.0_212. The
+ JVM max heap size is set to 16GB although the used heap rarely goes over 1GB. 
 
 ## Index setup
 
