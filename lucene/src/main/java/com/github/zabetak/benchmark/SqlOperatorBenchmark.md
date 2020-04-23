@@ -97,18 +97,19 @@ boolean column that is represented as a string.
 ## Search mode
 
 Lucene offers various search APIs accepting a query, which demonstrate different performance
-characteristics. In these experiments we focus on three common use cases.
+characteristics. We identified three possible modes for comparing the queries. The one that seems
+more appropriate for comparing the queries is 'All matches' and this is the one used in the
+following sections.  
 
 ### All matches
 
 Find all documents matching the query. 
 
 The search is performed via `IndexSearcher#search(Query, Collector)` method and passing in a
-collector that goes over all documents (`ScoreMode.COMPLETE_NO_SCORES`). In these experiments, we
-use a collector that does nothing with the matches. In practice, this collector is useless but it
-can provide a lower bound for the performance of the query. It is also a straightforward way to
-compare the performance of the queries and respective indexes assuming that sooner or later all 
-matches need to be retrieved.    
+collector that goes over all documents (`ScoreMode.COMPLETE_NO_SCORES`). The collector does nothing
+with the matches. In practice, this collector is useless but it can provide a lower bound for the
+performance of the query. It is also a straightforward way to compare the performance of the
+queries and respective indexes assuming that sooner or later all matches need to be retrieved.    
 
 ### TOP-10 matches
 
