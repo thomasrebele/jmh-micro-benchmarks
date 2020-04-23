@@ -233,6 +233,96 @@ performance of Q0 drops to the same order of magnitude with Q1, and Q2.
 Last we can observe that the performance of Q2 is stable between high/low cardinality fields and
 depends only on the number of matching documents.  
 
+## IS NULL benchmark
+
+This section presents the experiments of creating and evaluating the `IS NULL` operator.
+
+The `IS NULL` operator on both kind of fields returns the same number of results (~10% of the
+total number of documents) since the percentage of null values is the same. 
+
+### Integer fields
+
+For the presentation of the Lucene queries, we assume the SQL query to be `age IS NULL`.
+
+#### Queries
+
+##### Q0
+Using only `IntPoint` field.
+
+    +*:* -age:[-2147483648 TO 2147483647]
+
+##### Q1
+Using only `NumericDocValues` field.
+
+    +*:* -age:[-2147483648 TO 2147483647]
+
+##### Q2
+Using only `NumericDocValues` field.
+
+    +*:* -DocValuesFieldExistsQuery [field=age]
+
+#### Results
+
+##### High-cardinality
+
+|Query|1M|10M|100M|
+|--|-----|-------|------|
+|Q0|0.744|96.571|1024.918|
+|Q1|0.612|157.778|1600.494|
+|Q2|0.775|74.914|712.817|
+
+##### Low-cardinality
+
+|Query|1M|10M|100M|
+|--|-----|-------|------|
+|Q0|0.714|68.790|693.346|
+|Q1|0.626|129.497|1323.750|
+|Q2|0.753|72.947|717.596|
+
+### String fields
+
+For the presentation of the Lucene queries, we assume the SQL query to be `firstname IS NULL`.
+
+#### Queries
+
+##### Q0
+Using only `StringField`.
+
+    +*:* -firstName:*
+
+##### Q1
+Using only `SortedSetDocValuesField`.
+
+    +*:* -firstName:{* TO *}
+
+##### Q2 
+Using only `SortedSetDocValuesField`.
+
+    +*:* -DocValuesFieldExistsQuery [field=firstName]
+    
+#### Results
+ 
+##### High-cardinality
+|Query|1M|10M|100M|
+|--|-----|-------|--------|
+|Q0|0.771|529.927|4792.408|
+|Q1|0.791|71.965|782.578|
+|Q2|0.778|69.607|720.868|
+
+
+##### Low-cardinality
+|Query|1M|10M|100M|
+|--|-----|-------|--------|
+|Q0|1.159|129.043|1195.973|
+|Q1|0.729|70.072|696.629|
+|Q2|0.721|75.998|831.797|
+
+### Summary
+The performance of queries follows more or less the same trends that were observed for the 
+`IS NOT NULL` operator on integer and string fields respectively. The evaluation of the `IS NULL` 
+operator is slower than the `IS NOT NULL`; in every case the query is more complex since it needs
+to consider every document in the index in order to implement the exclusion. 
+
 ## NOT EQUAL benchmark
 
 The operators strictly follow the SQL semantics. For instance, `age <> 28` returns all documents
