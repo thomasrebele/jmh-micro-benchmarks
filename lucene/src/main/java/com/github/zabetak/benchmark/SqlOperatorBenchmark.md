@@ -60,8 +60,8 @@ at once so there intermediate commits every 100K documents. For the sake of the 
  configured Lucene to not merge any segments (using `NoMergePolicy.INSTANCE`).  
  
 In real world, we do not always have certain information available at all times. In a table
-holding customers, we may not always have a value for the `age` column. In a relational setting
-, the value in such a column is `null`. In Lucene, the field simply does not exist for a given
+holding customers, we may not always have a value for the `age` column. In a relational setting,
+the value in such a column is `null`. In Lucene, the field simply does not exist for a given
 document but the outcome is the same. Since we want to measure the performance of queries, taking
 also into account `null` values, we left the `10%` of the total documents empty.
 
@@ -106,7 +106,7 @@ Find all documents matching the query.
 The search is performed via `IndexSearcher#search(Query, Collector)` method and passing in a
 collector that goes over all documents (`ScoreMode.COMPLETE_NO_SCORES`). In these experiments, we
 use a collector that does nothing with the matches. In practice, this collector is useless but it
-can provide a lower bound for the performance of the query. It is also straightforward way to
+can provide a lower bound for the performance of the query. It is also a straightforward way to
 compare the performance of the queries and respective indexes assuming that sooner or later all 
 matches need to be retrieved.    
 
@@ -115,7 +115,7 @@ matches need to be retrieved.
 Find all documents matching the query and return 10 with the highest score. 
 
 The search is performed via `IndexSearcher#search(Query, int)` method. This is a very common use
--case in informational retrieval but less interesting in this setting where the score is not
+case in informational retrieval but less interesting in this setting where the score is not
 necessary.
 
 ### Sort-10 matches
