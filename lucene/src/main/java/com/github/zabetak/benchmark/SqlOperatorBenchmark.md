@@ -34,6 +34,8 @@ information retrieval, is not present in most SQL use-cases.
 
 The reported times are in milliseconds and it is the average of 5 iterations.
 
+TODO: Mention about caches and system
+
 ## Index setup
 
 In each experiment we create a single Lucene index comprised from two kind of fields: 
@@ -325,11 +327,22 @@ to consider every document in the index in order to implement the exclusion.
 
 ## NOT EQUAL benchmark
 
+This section presents the experiments of creating and evaluating the `NOT EQUAL` operator.
+
 The operators strictly follow the SQL semantics. For instance, `age <> 28` returns all documents
 with values that are not equal to 28 but not those documents that do not have a value at all for
 this field; in other words excluding `null` values.
  
 ### Integer fields
+
+For the presentation of the Lucene queries, we assume the SQL query to be `age <> 28`. 
+
+Note that the value `28` is not the actual value that was used in the measurements.
+
+The choice of the query alternatives both for integer and string fields may surprise some people,
+especially those very familiar with Lucene. They are included in the benchmark since they were
+used in production systems at some point in time or were found in online forums as ways to evaluate
+the `NOT EQUAL` operator.
 
 #### Queries
 
@@ -362,8 +375,6 @@ Using only `NumericDocValuesField`.
  
 ##### High-cardinality
 
-###### All matches
-
 |Query|    1M|       10M|       100M|
 |--|---------|--------- |-----------|
 |Q0|	5.394|	 369.586|	3952.192|
@@ -373,24 +384,7 @@ Using only `NumericDocValuesField`.
 |Q4|	5.183|	  52.181|	 527.773|
 |Q5|	5.579|	 194.481|	1822.767|
 
-The fastest query is Q4 followed closely by Q1, and Q2. 
-
-###### TOP-10 matches
-
-|Query|	    1M|	    10M|        100M|
-|--|----------|--------|------------|
-|Q0|	 0.026|	 48.637|	 481.117|
-|Q1|	 4.529|	 47.135|	 577.044|
-|Q2|	23.800|	228.169|	2296.618|
-|Q3|	45.916|	423.906|	4159.621|
-|Q4|	 0.019|	  0.202|	   2.839|
-|Q5|	 0.028|	  0.167|	   1.939|
-
-The fastest queries are Q4, and Q5.
-
 ##### Low-cardinality
-
-###### All matches
 
 |Query|	   1M|	    10M|	    100M|
 |--|----------|--------|------------|
@@ -401,29 +395,34 @@ The fastest queries are Q4, and Q5.
 |Q4|	6.055|	 48.745|	 489.782|
 |Q5|	5.647|	167.275|	1710.167|
 
-The fastest query is Q4 followed closely by Q1, and Q2. 
-
-###### TOP-10 matches
-
-|Query|	    1M|	    10M|	    100M|
-|--|----------|--------|------------|
-|Q0|	 0.030|	 18.769|	 185.562|
-|Q1|	 1.381|	 18.030|	 180.196|
-|Q2|	23.472|	224.569|	2232.488|
-|Q3|	39.989|	411.295|	4121.313|
-|Q4|	 0.021|	  4.248|	  46.226|
-|Q5|	 0.028|	  0.157|	   1.649|
-
-The fastest query is Q5 followed by Q4.
-
 #### Summary
 
-Overall, and since we assumed that we have all fields available the best query is Q4 since it
-outperforms the others in most cases and some times by orders of magnitude.
+For 1M documents, all the queries perform roughly the same and the difference is in the order of
+nanoseconds.
 
-### Queries on string fields
+For 10M documents and more, Q1, Q2, and Q4, are orders of magnitude faster than the rest, with Q4
+being the fastest.
 
-For presentation purposes, we assume that the SQL equivalent is `firstname <> 'Victor'`.
+Q0 is the worst alternative. Using some first order logic it can be shown that Q0 can be reduced
+to Q1. It is normal that by removing redundant clauses the performance of the query is improved. 
+
+Note that high-selective queries on point values, such as `age:[28 TO 28]`, are very efficient since
+we can locate very fast the matching documents with very few value comparisons by using the KD-index
+structure. The costly part becomes reading the values from the filesystem and iterating through
+the matches; if there are not many then the overall query is extremely fast. This kind of
+query appears as part of Q0, Q1, and Q4. Given that this part of the query is extremely fast to
+evaluate the overall performance is dominated by the rest of the query. 
+
+Between Q1 and Q4, the comparison boils down to which is the more efficient way to obtain and
+iterate through all matches. As we have seen also for the case of the `IS NOT NULL` operator
+passing from doc values (Q4) requires fewer comparisons than passing by the KD-index to find
+matching documents (Q1). 
+
+### String fields
+
+For the presentation of the Lucene queries, we assume the SQL query to be `firstname <> 'Victor'`.
+
+#### Queries
 
 ##### Q0
 Using only `StringField`.
@@ -453,11 +452,9 @@ Using only `SortedDocValuesField`.
 
     firstName:{* TO [56 69 63 74 6f 72]} firstName:{[56 69 63 74 6f 72] TO *}
 
-### Results on string fields
+#### Results
 
-#### High-cardinality
-
-##### All matches
+##### High-cardinality
 
 |Query|	   1M|  	10M|	    100M|
 |--|---------|---------|------------|
@@ -468,24 +465,7 @@ Using only `SortedDocValuesField`.
 |Q4|	5.881|	 97.157|	 970.654|
 |Q5|	5.839|	 84.752|	 813.002|
 
-The fastest query is Q2.
-
-##### TOP-10 matches
-
-|Query|	    1M| 	10M|	    100M|
-|--|----------|--------|------------|
-|Q0|	 0.036|	413.578|	4180.604|
-|Q1|	40.537|	413.708|	4070.840|
-|Q2|	 0.032|	  0.245|	   3.021|
-|Q3|	44.645|	428.981|	4233.283|
-|Q4|	 0.026|	  0.158|	   1.964|
-|Q5|	 0.049|	  0.359|	   4.468|
-
-The fastest query is Q4 followed closely by Q2, and Q5.
-
-#### Low-cardinality
-
-##### All matches
+##### Low-cardinality
 
 |Query|	   1M|	    10M|	    100M|
 |--|---------|---------|------------|
@@ -496,24 +476,32 @@ The fastest query is Q4 followed closely by Q2, and Q5.
 |Q4|	1.940|	 89.567|	 841.215|
 |Q5|	1.972|	 86.884|	 836.173|
 
-The fastest query is Q3, followed by the slightly slower Q4, and Q5.
-
-##### TOP-10 matches
-
-|Query|	    1M|	    10M|	    100M|
-|--|----------|--------|------------|
-|Q0|	 0.047|	  0.921|	  10.964|
-|Q1|	11.222|	159.992|	1590.113|
-|Q2|	 0.056|	  0.317|	   3.999|
-|Q3|	 3.604|	 32.728|	 327.444|
-|Q4|	 0.035|	  0.142|	   1.503|
-|Q5|	 0.053|	  0.310|	   3.415|
-
-The fastest query is Q4 followed closely by Q2, and Q5. 
-
 #### Summary
 
-Overall, the winner seems to be between Q2, and Q4, performing well in most 
-cases. The advantage of Q2 is that the involved queries are all provided in the official release of 
-Lucene. The disadvantage of Q2 is that it requires the existence of two Lucene fields instead of
-one.  
+For 1M documents, the performance difference between queries is modest (up to 1.6X between the
+worst and the best).  
+
+For 10M documents and more, we can observe significant differences going up to 18X between the worst
+and the best query.
+
+The comparison of queries for both high and low selective fields cannot be performed since the
+total number of results retrieved by the queries is different. 
+
+For high-selective fields, the best query is Q2. Similar to point values, high-selective queries
+over the term index, such as `firstName:Victor`, are very efficient. Using the trie structure
+matching documents can be found efficiently with very few comparisons so the costly operation
+becomes reading and iterating through the document ids. In this case the query matches only one
+document so the reading cost is negligible. The performance bottleneck for Q2 is to obtain all
+non-null documents via the doc values iterator. As we have seen previously (in the experiments of
+the `IS NOT NULL`) iterating through the doc values is stable between high and low selective
+queries and depends only on the number of documents.
+
+For low-selective fields, the best query is Q3. The term index is very small (there are only two
+distinct values) so Q3 can very quickly get rid of 1/2 of the documents. The costly part is
+actually gathering and iterating through the matching document ids. The main disadvantage of Q3 is
+that it is not provided in the official release of Lucene and needs more development effort
+and testing to be used in practice. Right afterwards comes Q5 relying on doc values. As we can
+observe the performance of Q5 is not affected by the cardinality of the field since we have to
+iterate through all documents and decide to include or exclude the document. Q4 relies also on
+doc values and can be faster in some other scenarios, but has also the disadvantage that is not
+part of the official release.
