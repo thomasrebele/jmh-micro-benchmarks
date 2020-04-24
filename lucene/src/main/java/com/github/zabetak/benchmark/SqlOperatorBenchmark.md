@@ -234,17 +234,20 @@ Using only `SortedDocValuesField`.
 
 The fastest query is Q2.
 
-For high-cardinality fields Q2, and Q1, are 9x faster than Q0. Roughly this means that 
-traversing the inverse index is slower than sequentially scanning all documents using the doc
-value storage.
+For high-cardinality fields Q2, and Q1, are 9x faster than Q0. Q0 goes over the entire term index
+and for each term retrieves the matching document ids by reading through the posting lists. Q1, and
+Q2, use the doc value storage holding pairs of document ids and values and can be though of as a
+contiguous array of integers. For this use case where we just need to iterate through all
+ documents (having a value) the doc values is as expected much faster.
   
 For low-cardinality fields the difference is significantly smaller. The fact that we have only
-two distinct values means that the inverse index has only two entries with a long list of postings.
-Essentially this makes all queries behave exactly like a sequential scan so we observe that the
-performance of Q0 drops to the same order of magnitude with Q1, and Q2.
+two distinct values means that the term index has only two entries with a long list of postings.
+The long list of postings can also be seen as a contiguous array of integers so it resembles in some
+sense the doc values storage. The performance of Q0 would be even closer to Q1, and Q2, if it was
+not rewritten into a disjunction (this happens under the hood by Lucene).  
 
-Last we can observe that the performance of Q2 is stable between high/low cardinality fields and
-depends only on the number of matching documents.  
+Last we can observe that the performance of Q1, and Q2, is stable between high/low cardinality
+fields and depends only on the number of matching documents.  
 
 ## IS NULL benchmark
 
