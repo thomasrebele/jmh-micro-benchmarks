@@ -163,6 +163,20 @@ public class BitwiseOrBenchmark {
         final int len = bitsetPool.entrySize;
         final byte[] result = new byte[len];
         for (Batch p : bState.createBatches(len)) {
+            for (int j = p.start; j < p.end; j++) {
+                for (int i = 0; i < oState.nBitsets; i++) {
+                    result[j] |= bitsetPool.get(i)[j];
+                }
+            }
+        }
+        return result;
+    }
+
+    @Benchmark
+    public byte[] customBatchWithByteArray(InputState oState, ByteArrayPool bitsetPool, BatchState bState) {
+        final int len = bitsetPool.entrySize;
+        final byte[] result = new byte[len];
+        for (Batch p : bState.createBatches(len)) {
             for (int i = 0; i < oState.nBitsets; i++) {
                 for (int j = p.start; j < p.end; j++) {
                     result[j] |= bitsetPool.get(i)[j];
@@ -187,7 +201,30 @@ public class BitwiseOrBenchmark {
     }
 
     @Benchmark
-    public byte[] columnWiseBatchWithByteArrayInParallel(InputState oState, ByteArrayPool bitsetPool, BatchState bState) {
+    public byte[] columnWiseWithByteArrayInParallel(InputState oState, ByteArrayPool bitsetPool, BatchState bState) {
+        final int len = bitsetPool.entrySize;
+        ExecutorService service = Executors.newFixedThreadPool(bState.nBatches);
+        final byte[] result = new byte[len];
+        for (Batch p : bState.createBatches(len)) {
+            service.submit(() -> {
+                for (int j = p.start; j < p.end; j++) {
+                    for (int i = 0; i < oState.nBitsets; i++) {
+                        result[j] |= bitsetPool.get(i)[j];
+                    }
+                }
+            });
+        }
+        service.shutdown();
+        try {
+            service.awaitTermination(1, TimeUnit.MINUTES);
+            return result;
+        } catch (InterruptedException ie) {
+            throw new RuntimeException(ie);
+        }
+    }
+
+    @Benchmark
+    public byte[] customBatchWithByteArrayInParallel(InputState oState, ByteArrayPool bitsetPool, BatchState bState) {
         final int len = bitsetPool.entrySize;
         ExecutorService service = Executors.newFixedThreadPool(bState.nBatches);
         final byte[] result = new byte[len];
