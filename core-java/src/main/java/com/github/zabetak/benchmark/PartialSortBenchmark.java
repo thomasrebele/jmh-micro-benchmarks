@@ -39,16 +39,20 @@ public class PartialSortBenchmark {
 
     private static final Object VOID = new Object();
 
+    private static int recordCounter = 0;
+
     public static final class Record {
         private List<Comparable> fields;
+        private int recordIndex = 0;
 
         public Record(List<Comparable> fields) {
             this.fields = Collections.unmodifiableList(fields);
+            recordIndex = recordCounter++;
         }
 
         @Override
         public String toString() {
-            return fields.toString();
+            return fields.toString() + "@" + recordIndex;
         }
 
         @Override
@@ -67,9 +71,11 @@ public class PartialSortBenchmark {
      */
     private static class Checksum {
         long h = 0;
+        long hStable = 0;
 
         public void add(Object obj) {
             h = (h << 2) ^ obj.hashCode();
+            hStable = ((hStable << 2) ^ obj.hashCode()) << 2 + ((Record) obj).recordIndex;
 //            System.out.println("  " + obj + "  " + h);
         }
 
@@ -96,8 +102,9 @@ public class PartialSortBenchmark {
 
     @State(Scope.Thread)
     @AuxCounters(Type.EVENTS)
-    public static class CompareCounter {
+    public static class Counters {
         public long comparisons;
+        public int stableSort;
     }
 
     @State(Scope.Benchmark)
@@ -116,15 +123,19 @@ public class PartialSortBenchmark {
 
         private List<Record> data;
         private Comparator<Record> internalComparator;
-        private long checksum = -1;
-        private long proposedChecksum = 0;
+        private Checksum checksum = null;
+        private Checksum proposedChecksum = null;
         private long cmpCalls = 0;
 
         /** Has to be submitted, otherwise the result will not be accepted */
-        Checksum submitChecksum(Checksum c, CompareCounter cmpCount) {
-            proposedChecksum = c.get();
-            if (cmpCount != null)
+        Checksum submitChecksum(Checksum c, Counters cmpCount) {
+            proposedChecksum = c;
+            if (cmpCount != null) {
                 cmpCount.comparisons = cmpCalls;
+                cmpCount.stableSort = 0;
+                if (proposedChecksum != null)
+                    cmpCount.stableSort = (proposedChecksum.hStable == checksum.hStable) ? 1 : 0;
+            }
             this.cmpCalls = 0;
             return c;
         }
@@ -133,11 +144,12 @@ public class PartialSortBenchmark {
         public void setup() {
             data = new ArrayList<>(tupleNumber);
             Random rand = new Random(22);
+            // make sure that some tuples with compare(a,b) == 0 exist,
+            // to check whether the algorithm handles all cases correctly
+            int maxInt = Math.max(3, (int) Math.pow(tupleNumber, 1. / this.fieldsNumber));
+            recordCounter = 0;
             for (int i = 0; i < tupleNumber; i++) {
                 List<Comparable> fields = new ArrayList<>(this.fieldsNumber);
-                // make sure that some tuples with compare(a,b) == 0 exist,
-                // to check whether the algorithm handles all cases correctly
-                int maxInt = Math.max(3, (int)Math.pow(tupleNumber, 1./this.fieldsNumber) );
                 for (int j = 0; j < this.fieldsNumber; j++) {
                     Comparable<?> value = null;
                     switch (fieldType) {
@@ -168,7 +180,7 @@ public class PartialSortBenchmark {
             sorted.sort(internalComparator);
             int resultSize = limit < 0 ? Integer.MAX_VALUE : limit;
             resultSize = Math.min(resultSize, sorted.size());
-            checksum = Checksum.of(sorted.subList(0, resultSize)).get();
+            checksum = Checksum.of(sorted.subList(0, resultSize));
         }
 
         @Setup(Level.Iteration)
@@ -178,10 +190,10 @@ public class PartialSortBenchmark {
 
         @TearDown(Level.Iteration)
         public void verifyChecksum() {
-            if (checksum != proposedChecksum) {
+            if (checksum.h != proposedChecksum.h) {
                 throw new IllegalStateException("checksum was " + proposedChecksum + " should have been " + checksum);
             }
-            proposedChecksum = 0;
+            proposedChecksum = null;
         }
 
     }
@@ -202,7 +214,7 @@ public class PartialSortBenchmark {
     }
 
     @Benchmark
-    public Object treeMap(QueryState iState, CompareCounter cmpCount) {
+    public Object treeMap(QueryState iState, Counters cmpCount) {
         TreeMap<Record, List<Record>> map = new TreeMap<>(iState.comparator);
         long size = 0;
         for (Record i : iState.data) {
@@ -219,7 +231,7 @@ public class PartialSortBenchmark {
     }
 
     @Benchmark
-    public Object treeMap2(QueryState iState, CompareCounter cmpCount) {
+    public Object treeMap2(QueryState iState, Counters cmpCount) {
         TreeMap<Record, List<Record>> map = new TreeMap<>(iState.comparator);
         long size = 0;
         for (Record i : iState.data) {
@@ -238,7 +250,7 @@ public class PartialSortBenchmark {
     }
 
     @Benchmark
-    public Object collectionSort(QueryState iState, CompareCounter cmpCount) {
+    public Object collectionSort(QueryState iState, Counters cmpCount) {
         if (iState.limit >= 0 && iState.limit < iState.tupleNumber)
             return ignoreTrial();
         List<Record> list = new ArrayList<>(iState.data);
@@ -247,29 +259,29 @@ public class PartialSortBenchmark {
     }
 
     @Benchmark
-    public Object priorityQueue(QueryState iState, CompareCounter cmpCount) {
-        PriorityQueue<Record> min = new PriorityQueue<>(iState.comparator.reversed());
+    public Object priorityQueue(QueryState iState, Counters cmpCount) {
+        PriorityQueue<Record> pq = new PriorityQueue<>(iState.comparator.reversed());
         for (Record i : iState.data) {
             if (iState.limit == -1) {
-                min.add(i);
+                pq.add(i);
             } else {
-                if (min.size() < iState.limit) {
-                    min.add(i);
+                if (pq.size() < iState.limit) {
+                    pq.add(i);
                 } else {
-                    if (iState.comparator.compare(min.peek(), i) > 0) {
-                        min.poll();
-                        min.add(i);
+                    if (iState.comparator.compare(pq.peek(), i) > 0) {
+                        pq.poll();
+                        pq.add(i);
                     }
                 }
             }
         }
-        Record[] arr = min.toArray(new Record[iState.limit < 0 ? min.size() : iState.limit]);
+        Record[] arr = pq.toArray(new Record[iState.limit < 0 ? pq.size() : iState.limit]);
         Arrays.sort(arr, iState.comparator);
         return iState.submitChecksum(Checksum.of(arr), cmpCount);
     }
 
     @Benchmark
-    public Object array(QueryState state, CompareCounter cmpCount) {
+    public Object array(QueryState state, Counters cmpCount) {
         if (state.limit < 0) {
             return ignoreTrial();
         }
@@ -299,7 +311,7 @@ public class PartialSortBenchmark {
     }
 
     @Benchmark
-    public Object topnHeap(QueryState iState, CompareCounter cmpCount) {
+    public Object topnHeap(QueryState iState, Counters cmpCount) {
         TopNHeap<Record, Record> min = new TopNHeap<>(r -> r, iState.comparator,
                 iState.limit < 0 ? Integer.MAX_VALUE : iState.limit, 0);
         for (Record i : iState.data) {
@@ -309,7 +321,7 @@ public class PartialSortBenchmark {
     }
 
     @Benchmark
-    public Object topnHeap2(QueryState iState, CompareCounter cmpCount) {
+    public Object topnHeap2(QueryState iState, Counters cmpCount) {
         TopNHeap2<Record, Record> min = new TopNHeap2<>(r -> r, iState.comparator,
                 iState.limit < 0 ? Integer.MAX_VALUE : iState.limit, 0);
         for (Record i : iState.data) {
