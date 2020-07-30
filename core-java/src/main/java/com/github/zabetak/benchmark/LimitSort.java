@@ -7,7 +7,7 @@ import com.github.zabetak.benchmark.PartialSortBenchmark.Record;
 
 public class LimitSort<E> {
 
-    private static int INIT_ARRAY = 512/2;
+    private static int INIT_ARRAY = 512 / 2;
 
     private Object[] content;
     private Comparator<? super Object> cmp;
@@ -44,7 +44,6 @@ public class LimitSort<E> {
         this.limit = limit < 0 ? Integer.MAX_VALUE : limit;
         completeFrom = this.limit;
         tail = -1;
-        
         content = (E[]) Array.newInstance(Record.class, getNewSize(INIT_ARRAY));
     }
 
@@ -119,27 +118,26 @@ public class LimitSort<E> {
         }
 
         toInsert.sort(cmpTmp);
-        int toInsertIdx = 0;
-        Deque<Object> tmp = new ArrayDeque<>(tail - completeUntil + 1);
-        int oldContentIdx = completeUntil;
-        for (int i = completeUntil; i < size; i++) {
-            if (i <= tail) {
-                tmp.addLast(content[i]);
-            }
 
-            if (toInsertIdx >= toInsert.size()) {
-                content[i] = tmp.pollFirst();
-                continue;
-            }
+        int contentOutIdx = size;
+        int contentInIdx = tail + 1;
+        for (int i = toInsert.size(); i-- > 0;) {
+            Etmp tmp = toInsert.get(i);
+            int dst = tmp.idx;
+            int len = contentInIdx - dst;
 
-            Etmp t = toInsert.get(toInsertIdx);
-            if (t.idx <= oldContentIdx) {
-                content[i] = t.o;
-                toInsertIdx++;
+            // a for small slices, a loop is quicker
+            if (len <= 5) {
+                for (int j = len; j-- > 0;) {
+                    content[--contentOutIdx] = content[--contentInIdx];
+                }
             } else {
-                content[i] = tmp.pollFirst();
-                oldContentIdx++;
+                contentInIdx -= len;
+                contentOutIdx -= len;
+                System.arraycopy(content, contentInIdx, content, contentOutIdx, len);
             }
+
+            content[--contentOutIdx] = tmp.o;
         }
         toInsert.clear();
         markSorted();
