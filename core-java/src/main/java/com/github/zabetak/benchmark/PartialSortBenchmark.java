@@ -37,8 +37,6 @@ import java.util.concurrent.TimeUnit;
 @Fork(1)
 public class PartialSortBenchmark {
 
-    private static final Object VOID = new Object();
-
     private static int recordCounter = 0;
 
     public static final class Record {
@@ -77,10 +75,6 @@ public class PartialSortBenchmark {
             h = (h << 2) ^ obj.hashCode();
             hStable = ((hStable << 2) ^ obj.hashCode()) << 2 + ((Record) obj).recordIndex;
 //            System.out.println("  " + obj + "  " + h);
-        }
-
-        public long get() {
-            return h == 0 ? 1 : h;
         }
 
         public static Checksum of(Iterable<?> iterable) {
