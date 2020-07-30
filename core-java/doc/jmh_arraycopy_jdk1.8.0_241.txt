@@ -1,0 +1,2253 @@
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 0)
+
+# Run progress: 0.00% complete, ETA 00:11:00
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 38594.138 ops/ms
+# Warmup Iteration   2: 38886.088 ops/ms
+# Warmup Iteration   3: 42987.229 ops/ms
+# Warmup Iteration   4: 42992.854 ops/ms
+# Warmup Iteration   5: 42966.319 ops/ms
+Iteration   1: 42805.307 ops/ms
+Iteration   2: 42995.793 ops/ms
+Iteration   3: 42996.011 ops/ms
+Iteration   4: 42850.759 ops/ms
+Iteration   5: 42863.612 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  42902.296 ±(99.9%) 339.445 ops/ms [Average]
+  (min, avg, max) = (42805.307, 42902.296, 42996.011), stdev = 88.153
+  CI (99.9%): [42562.851, 43241.742] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 1)
+
+# Run progress: 1.52% complete, ETA 00:11:07
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 34722.440 ops/ms
+# Warmup Iteration   2: 34136.269 ops/ms
+# Warmup Iteration   3: 36327.668 ops/ms
+# Warmup Iteration   4: 36363.697 ops/ms
+# Warmup Iteration   5: 36248.171 ops/ms
+Iteration   1: 36203.409 ops/ms
+Iteration   2: 36264.788 ops/ms
+Iteration   3: 36157.582 ops/ms
+Iteration   4: 36105.928 ops/ms
+Iteration   5: 35155.044 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  35977.350 ±(99.9%) 1784.354 ops/ms [Average]
+  (min, avg, max) = (35155.044, 35977.350, 36264.788), stdev = 463.391
+  CI (99.9%): [34192.996, 37761.704] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 2)
+
+# Run progress: 3.03% complete, ETA 00:10:55
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 34481.935 ops/ms
+# Warmup Iteration   2: 34062.423 ops/ms
+# Warmup Iteration   3: 35671.560 ops/ms
+# Warmup Iteration   4: 35648.434 ops/ms
+# Warmup Iteration   5: 35639.797 ops/ms
+Iteration   1: 35656.840 ops/ms
+Iteration   2: 35676.881 ops/ms
+Iteration   3: 35637.684 ops/ms
+Iteration   4: 35635.957 ops/ms
+Iteration   5: 35644.156 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  35650.304 ±(99.9%) 65.346 ops/ms [Average]
+  (min, avg, max) = (35635.957, 35650.304, 35676.881), stdev = 16.970
+  CI (99.9%): [35584.958, 35715.649] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 3)
+
+# Run progress: 4.55% complete, ETA 00:10:44
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 32458.599 ops/ms
+# Warmup Iteration   2: 33385.723 ops/ms
+# Warmup Iteration   3: 34632.076 ops/ms
+# Warmup Iteration   4: 34627.431 ops/ms
+# Warmup Iteration   5: 34642.675 ops/ms
+Iteration   1: 34673.754 ops/ms
+Iteration   2: 34696.760 ops/ms
+Iteration   3: 34676.367 ops/ms
+Iteration   4: 34727.954 ops/ms
+Iteration   5: 34694.558 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  34693.879 ±(99.9%) 83.515 ops/ms [Average]
+  (min, avg, max) = (34673.754, 34693.879, 34727.954), stdev = 21.688
+  CI (99.9%): [34610.364, 34777.393] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 4)
+
+# Run progress: 6.06% complete, ETA 00:10:33
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 32343.664 ops/ms
+# Warmup Iteration   2: 32986.702 ops/ms
+# Warmup Iteration   3: 33062.163 ops/ms
+# Warmup Iteration   4: 33118.334 ops/ms
+# Warmup Iteration   5: 32965.990 ops/ms
+Iteration   1: 33102.432 ops/ms
+Iteration   2: 33120.773 ops/ms
+Iteration   3: 33056.228 ops/ms
+Iteration   4: 33070.814 ops/ms
+Iteration   5: 33082.381 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  33086.526 ±(99.9%) 98.321 ops/ms [Average]
+  (min, avg, max) = (33056.228, 33086.526, 33120.773), stdev = 25.534
+  CI (99.9%): [32988.204, 33184.847] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 5)
+
+# Run progress: 7.58% complete, ETA 00:10:23
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30912.548 ops/ms
+# Warmup Iteration   2: 31551.187 ops/ms
+# Warmup Iteration   3: 32598.016 ops/ms
+# Warmup Iteration   4: 32620.556 ops/ms
+# Warmup Iteration   5: 32545.332 ops/ms
+Iteration   1: 32679.751 ops/ms
+Iteration   2: 32689.145 ops/ms
+Iteration   3: 32637.703 ops/ms
+Iteration   4: 32647.113 ops/ms
+Iteration   5: 32689.193 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  32668.581 ±(99.9%) 94.062 ops/ms [Average]
+  (min, avg, max) = (32637.703, 32668.581, 32689.193), stdev = 24.428
+  CI (99.9%): [32574.519, 32762.642] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 6)
+
+# Run progress: 9.09% complete, ETA 00:10:12
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 32049.263 ops/ms
+# Warmup Iteration   2: 32509.793 ops/ms
+# Warmup Iteration   3: 33613.313 ops/ms
+# Warmup Iteration   4: 33644.769 ops/ms
+# Warmup Iteration   5: 33578.301 ops/ms
+Iteration   1: 33619.392 ops/ms
+Iteration   2: 33564.787 ops/ms
+Iteration   3: 33624.038 ops/ms
+Iteration   4: 33500.617 ops/ms
+Iteration   5: 33647.286 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  33591.224 ±(99.9%) 227.170 ops/ms [Average]
+  (min, avg, max) = (33500.617, 33591.224, 33647.286), stdev = 58.995
+  CI (99.9%): [33364.054, 33818.394] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 7)
+
+# Run progress: 10.61% complete, ETA 00:10:02
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31692.237 ops/ms
+# Warmup Iteration   2: 30861.181 ops/ms
+# Warmup Iteration   3: 31852.633 ops/ms
+# Warmup Iteration   4: 31906.249 ops/ms
+# Warmup Iteration   5: 31913.407 ops/ms
+Iteration   1: 31937.865 ops/ms
+Iteration   2: 33320.098 ops/ms
+Iteration   3: 33333.484 ops/ms
+Iteration   4: 31946.806 ops/ms
+Iteration   5: 31800.162 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  32467.683 ±(99.9%) 3028.225 ops/ms [Average]
+  (min, avg, max) = (31800.162, 32467.683, 33333.484), stdev = 786.420
+  CI (99.9%): [29439.458, 35495.908] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 8)
+
+# Run progress: 12.12% complete, ETA 00:09:52
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31946.062 ops/ms
+# Warmup Iteration   2: 32507.515 ops/ms
+# Warmup Iteration   3: 33968.755 ops/ms
+# Warmup Iteration   4: 34004.970 ops/ms
+# Warmup Iteration   5: 34023.803 ops/ms
+Iteration   1: 34020.903 ops/ms
+Iteration   2: 34021.232 ops/ms
+Iteration   3: 33907.372 ops/ms
+Iteration   4: 33992.573 ops/ms
+Iteration   5: 33981.586 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  33984.733 ±(99.9%) 179.547 ops/ms [Average]
+  (min, avg, max) = (33907.372, 33984.733, 34021.232), stdev = 46.628
+  CI (99.9%): [33805.186, 34164.280] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 9)
+
+# Run progress: 13.64% complete, ETA 00:09:41
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31333.387 ops/ms
+# Warmup Iteration   2: 32222.488 ops/ms
+# Warmup Iteration   3: 32673.762 ops/ms
+# Warmup Iteration   4: 32678.134 ops/ms
+# Warmup Iteration   5: 32677.910 ops/ms
+Iteration   1: 32648.961 ops/ms
+Iteration   2: 32608.041 ops/ms
+Iteration   3: 32661.112 ops/ms
+Iteration   4: 32634.872 ops/ms
+Iteration   5: 32606.310 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  32631.859 ±(99.9%) 93.876 ops/ms [Average]
+  (min, avg, max) = (32606.310, 32631.859, 32661.112), stdev = 24.379
+  CI (99.9%): [32537.983, 32725.735] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.arrayCopy
+# Parameters: (toCopy = 10)
+
+# Run progress: 15.15% complete, ETA 00:09:31
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30441.238 ops/ms
+# Warmup Iteration   2: 30878.017 ops/ms
+# Warmup Iteration   3: 31473.205 ops/ms
+# Warmup Iteration   4: 31248.785 ops/ms
+# Warmup Iteration   5: 31527.786 ops/ms
+Iteration   1: 31580.479 ops/ms
+Iteration   2: 31531.202 ops/ms
+Iteration   3: 31497.142 ops/ms
+Iteration   4: 32969.543 ops/ms
+Iteration   5: 32962.181 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.arrayCopy":
+  32108.109 ±(99.9%) 3017.296 ops/ms [Average]
+  (min, avg, max) = (31497.142, 32108.109, 32969.543), stdev = 783.582
+  CI (99.9%): [29090.813, 35125.406] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 0)
+
+# Run progress: 16.67% complete, ETA 00:09:21
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 39621.595 ops/ms
+# Warmup Iteration   2: 39841.275 ops/ms
+# Warmup Iteration   3: 43764.429 ops/ms
+# Warmup Iteration   4: 43797.103 ops/ms
+# Warmup Iteration   5: 43841.816 ops/ms
+Iteration   1: 43873.612 ops/ms
+Iteration   2: 43831.948 ops/ms
+Iteration   3: 43899.167 ops/ms
+Iteration   4: 43985.027 ops/ms
+Iteration   5: 43987.887 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  43915.528 ±(99.9%) 265.919 ops/ms [Average]
+  (min, avg, max) = (43831.948, 43915.528, 43987.887), stdev = 69.058
+  CI (99.9%): [43649.609, 44181.447] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 1)
+
+# Run progress: 18.18% complete, ETA 00:09:11
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 37971.733 ops/ms
+# Warmup Iteration   2: 37107.829 ops/ms
+# Warmup Iteration   3: 40498.419 ops/ms
+# Warmup Iteration   4: 40526.070 ops/ms
+# Warmup Iteration   5: 40547.070 ops/ms
+Iteration   1: 40513.097 ops/ms
+Iteration   2: 40454.509 ops/ms
+Iteration   3: 40414.281 ops/ms
+Iteration   4: 40526.084 ops/ms
+Iteration   5: 40582.890 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  40498.172 ±(99.9%) 251.939 ops/ms [Average]
+  (min, avg, max) = (40414.281, 40498.172, 40582.890), stdev = 65.428
+  CI (99.9%): [40246.234, 40750.111] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 2)
+
+# Run progress: 19.70% complete, ETA 00:09:00
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 37332.763 ops/ms
+# Warmup Iteration   2: 38184.839 ops/ms
+# Warmup Iteration   3: 39275.843 ops/ms
+# Warmup Iteration   4: 39338.717 ops/ms
+# Warmup Iteration   5: 39296.116 ops/ms
+Iteration   1: 39139.263 ops/ms
+Iteration   2: 38962.329 ops/ms
+Iteration   3: 39288.697 ops/ms
+Iteration   4: 39348.545 ops/ms
+Iteration   5: 39247.014 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  39197.169 ±(99.9%) 584.866 ops/ms [Average]
+  (min, avg, max) = (38962.329, 39197.169, 39348.545), stdev = 151.888
+  CI (99.9%): [38612.303, 39782.035] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 3)
+
+# Run progress: 21.21% complete, ETA 00:08:50
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 33636.835 ops/ms
+# Warmup Iteration   2: 33490.313 ops/ms
+# Warmup Iteration   3: 36967.413 ops/ms
+# Warmup Iteration   4: 36926.698 ops/ms
+# Warmup Iteration   5: 36991.844 ops/ms
+Iteration   1: 36986.752 ops/ms
+Iteration   2: 36873.767 ops/ms
+Iteration   3: 36994.581 ops/ms
+Iteration   4: 36950.882 ops/ms
+Iteration   5: 36990.548 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  36959.306 ±(99.9%) 195.982 ops/ms [Average]
+  (min, avg, max) = (36873.767, 36959.306, 36994.581), stdev = 50.896
+  CI (99.9%): [36763.324, 37155.288] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 4)
+
+# Run progress: 22.73% complete, ETA 00:08:40
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31790.421 ops/ms
+# Warmup Iteration   2: 31974.132 ops/ms
+# Warmup Iteration   3: 35007.419 ops/ms
+# Warmup Iteration   4: 34979.819 ops/ms
+# Warmup Iteration   5: 35013.053 ops/ms
+Iteration   1: 34983.094 ops/ms
+Iteration   2: 34972.504 ops/ms
+Iteration   3: 34987.309 ops/ms
+Iteration   4: 34992.304 ops/ms
+Iteration   5: 34981.082 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  34983.259 ±(99.9%) 28.469 ops/ms [Average]
+  (min, avg, max) = (34972.504, 34983.259, 34992.304), stdev = 7.393
+  CI (99.9%): [34954.790, 35011.727] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 5)
+
+# Run progress: 24.24% complete, ETA 00:08:30
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30912.804 ops/ms
+# Warmup Iteration   2: 30884.615 ops/ms
+# Warmup Iteration   3: 33867.210 ops/ms
+# Warmup Iteration   4: 33869.924 ops/ms
+# Warmup Iteration   5: 33945.361 ops/ms
+Iteration   1: 32949.394 ops/ms
+Iteration   2: 33744.737 ops/ms
+Iteration   3: 33763.995 ops/ms
+Iteration   4: 33849.673 ops/ms
+Iteration   5: 33867.293 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  33635.018 ±(99.9%) 1489.833 ops/ms [Average]
+  (min, avg, max) = (32949.394, 33635.018, 33867.293), stdev = 386.905
+  CI (99.9%): [32145.186, 35124.851] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 6)
+
+# Run progress: 25.76% complete, ETA 00:08:20
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30562.125 ops/ms
+# Warmup Iteration   2: 32293.220 ops/ms
+# Warmup Iteration   3: 34576.062 ops/ms
+# Warmup Iteration   4: 34568.982 ops/ms
+# Warmup Iteration   5: 34533.773 ops/ms
+Iteration   1: 34453.238 ops/ms
+Iteration   2: 34471.348 ops/ms
+Iteration   3: 34295.899 ops/ms
+Iteration   4: 34314.558 ops/ms
+Iteration   5: 34403.480 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  34387.704 ±(99.9%) 306.352 ops/ms [Average]
+  (min, avg, max) = (34295.899, 34387.704, 34471.348), stdev = 79.559
+  CI (99.9%): [34081.352, 34694.056] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 7)
+
+# Run progress: 27.27% complete, ETA 00:08:09
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31959.975 ops/ms
+# Warmup Iteration   2: 31865.586 ops/ms
+# Warmup Iteration   3: 34014.495 ops/ms
+# Warmup Iteration   4: 33947.011 ops/ms
+# Warmup Iteration   5: 33422.124 ops/ms
+Iteration   1: 33840.972 ops/ms
+Iteration   2: 33910.494 ops/ms
+Iteration   3: 33990.518 ops/ms
+Iteration   4: 33990.926 ops/ms
+Iteration   5: 34075.514 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  33961.685 ±(99.9%) 343.525 ops/ms [Average]
+  (min, avg, max) = (33840.972, 33961.685, 34075.514), stdev = 89.212
+  CI (99.9%): [33618.160, 34305.210] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 8)
+
+# Run progress: 28.79% complete, ETA 00:07:59
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30749.156 ops/ms
+# Warmup Iteration   2: 30384.358 ops/ms
+# Warmup Iteration   3: 32674.473 ops/ms
+# Warmup Iteration   4: 32698.165 ops/ms
+# Warmup Iteration   5: 32757.301 ops/ms
+Iteration   1: 32716.072 ops/ms
+Iteration   2: 32812.157 ops/ms
+Iteration   3: 32772.451 ops/ms
+Iteration   4: 32831.507 ops/ms
+Iteration   5: 32832.200 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  32792.878 ±(99.9%) 189.881 ops/ms [Average]
+  (min, avg, max) = (32716.072, 32792.878, 32832.200), stdev = 49.312
+  CI (99.9%): [32602.996, 32982.759] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 9)
+
+# Run progress: 30.30% complete, ETA 00:07:49
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31788.175 ops/ms
+# Warmup Iteration   2: 31543.120 ops/ms
+# Warmup Iteration   3: 33643.139 ops/ms
+# Warmup Iteration   4: 33760.998 ops/ms
+# Warmup Iteration   5: 33732.688 ops/ms
+Iteration   1: 33598.832 ops/ms
+Iteration   2: 33828.037 ops/ms
+Iteration   3: 33839.396 ops/ms
+Iteration   4: 33799.566 ops/ms
+Iteration   5: 33805.160 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  33774.198 ±(99.9%) 382.675 ops/ms [Average]
+  (min, avg, max) = (33598.832, 33774.198, 33839.396), stdev = 99.379
+  CI (99.9%): [33391.524, 34156.873] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined1
+# Parameters: (toCopy = 10)
+
+# Run progress: 31.82% complete, ETA 00:07:39
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31797.661 ops/ms
+# Warmup Iteration   2: 31946.402 ops/ms
+# Warmup Iteration   3: 33709.902 ops/ms
+# Warmup Iteration   4: 33743.855 ops/ms
+# Warmup Iteration   5: 33750.886 ops/ms
+Iteration   1: 33776.334 ops/ms
+Iteration   2: 33650.630 ops/ms
+Iteration   3: 33723.935 ops/ms
+Iteration   4: 33770.993 ops/ms
+Iteration   5: 33717.640 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined1":
+  33727.907 ±(99.9%) 195.347 ops/ms [Average]
+  (min, avg, max) = (33650.630, 33727.907, 33776.334), stdev = 50.731
+  CI (99.9%): [33532.560, 33923.253] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 0)
+
+# Run progress: 33.33% complete, ETA 00:07:29
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 40635.158 ops/ms
+# Warmup Iteration   2: 40310.423 ops/ms
+# Warmup Iteration   3: 45507.905 ops/ms
+# Warmup Iteration   4: 45532.287 ops/ms
+# Warmup Iteration   5: 45531.384 ops/ms
+Iteration   1: 45486.584 ops/ms
+Iteration   2: 45531.353 ops/ms
+Iteration   3: 45500.643 ops/ms
+Iteration   4: 45508.945 ops/ms
+Iteration   5: 45535.897 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  45512.684 ±(99.9%) 80.023 ops/ms [Average]
+  (min, avg, max) = (45486.584, 45512.684, 45535.897), stdev = 20.782
+  CI (99.9%): [45432.661, 45592.707] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 1)
+
+# Run progress: 34.85% complete, ETA 00:07:18
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 38402.098 ops/ms
+# Warmup Iteration   2: 36954.569 ops/ms
+# Warmup Iteration   3: 40611.463 ops/ms
+# Warmup Iteration   4: 40659.494 ops/ms
+# Warmup Iteration   5: 40663.394 ops/ms
+Iteration   1: 40794.008 ops/ms
+Iteration   2: 40781.666 ops/ms
+Iteration   3: 40798.352 ops/ms
+Iteration   4: 40770.104 ops/ms
+Iteration   5: 40808.345 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  40790.495 ±(99.9%) 57.324 ops/ms [Average]
+  (min, avg, max) = (40770.104, 40790.495, 40808.345), stdev = 14.887
+  CI (99.9%): [40733.172, 40847.819] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 2)
+
+# Run progress: 36.36% complete, ETA 00:07:08
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 36313.115 ops/ms
+# Warmup Iteration   2: 36917.383 ops/ms
+# Warmup Iteration   3: 38944.903 ops/ms
+# Warmup Iteration   4: 39016.486 ops/ms
+# Warmup Iteration   5: 38941.459 ops/ms
+Iteration   1: 38933.543 ops/ms
+Iteration   2: 38996.368 ops/ms
+Iteration   3: 39069.589 ops/ms
+Iteration   4: 39095.496 ops/ms
+Iteration   5: 39008.933 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  39020.786 ±(99.9%) 245.894 ops/ms [Average]
+  (min, avg, max) = (38933.543, 39020.786, 39095.496), stdev = 63.858
+  CI (99.9%): [38774.892, 39266.679] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 3)
+
+# Run progress: 37.88% complete, ETA 00:06:58
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31923.066 ops/ms
+# Warmup Iteration   2: 32081.457 ops/ms
+# Warmup Iteration   3: 35108.737 ops/ms
+# Warmup Iteration   4: 35107.562 ops/ms
+# Warmup Iteration   5: 35139.354 ops/ms
+Iteration   1: 35029.231 ops/ms
+Iteration   2: 35160.552 ops/ms
+Iteration   3: 35074.793 ops/ms
+Iteration   4: 35104.102 ops/ms
+Iteration   5: 35086.175 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  35090.971 ±(99.9%) 183.770 ops/ms [Average]
+  (min, avg, max) = (35029.231, 35090.971, 35160.552), stdev = 47.724
+  CI (99.9%): [34907.201, 35274.740] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 4)
+
+# Run progress: 39.39% complete, ETA 00:06:48
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31476.127 ops/ms
+# Warmup Iteration   2: 31532.390 ops/ms
+# Warmup Iteration   3: 34912.957 ops/ms
+# Warmup Iteration   4: 34917.100 ops/ms
+# Warmup Iteration   5: 34863.796 ops/ms
+Iteration   1: 34906.690 ops/ms
+Iteration   2: 34902.650 ops/ms
+Iteration   3: 34996.376 ops/ms
+Iteration   4: 35081.524 ops/ms
+Iteration   5: 34990.913 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  34975.631 ±(99.9%) 285.287 ops/ms [Average]
+  (min, avg, max) = (34902.650, 34975.631, 35081.524), stdev = 74.088
+  CI (99.9%): [34690.343, 35260.918] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 5)
+
+# Run progress: 40.91% complete, ETA 00:06:38
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30304.280 ops/ms
+# Warmup Iteration   2: 31023.855 ops/ms
+# Warmup Iteration   3: 33400.878 ops/ms
+# Warmup Iteration   4: 33297.543 ops/ms
+# Warmup Iteration   5: 33327.991 ops/ms
+Iteration   1: 33388.730 ops/ms
+Iteration   2: 33406.498 ops/ms
+Iteration   3: 33414.543 ops/ms
+Iteration   4: 33373.127 ops/ms
+Iteration   5: 33308.515 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  33378.283 ±(99.9%) 162.393 ops/ms [Average]
+  (min, avg, max) = (33308.515, 33378.283, 33414.543), stdev = 42.173
+  CI (99.9%): [33215.889, 33540.676] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 6)
+
+# Run progress: 42.42% complete, ETA 00:06:27
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31799.785 ops/ms
+# Warmup Iteration   2: 32925.761 ops/ms
+# Warmup Iteration   3: 34582.298 ops/ms
+# Warmup Iteration   4: 34578.667 ops/ms
+# Warmup Iteration   5: 34636.565 ops/ms
+Iteration   1: 34573.200 ops/ms
+Iteration   2: 34588.740 ops/ms
+Iteration   3: 34550.351 ops/ms
+Iteration   4: 34550.878 ops/ms
+Iteration   5: 34576.699 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  34567.974 ±(99.9%) 64.935 ops/ms [Average]
+  (min, avg, max) = (34550.351, 34567.974, 34588.740), stdev = 16.864
+  CI (99.9%): [34503.038, 34632.909] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 7)
+
+# Run progress: 43.94% complete, ETA 00:06:17
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30042.349 ops/ms
+# Warmup Iteration   2: 30842.997 ops/ms
+# Warmup Iteration   3: 32644.203 ops/ms
+# Warmup Iteration   4: 32659.249 ops/ms
+# Warmup Iteration   5: 32616.064 ops/ms
+Iteration   1: 32649.571 ops/ms
+Iteration   2: 32681.432 ops/ms
+Iteration   3: 32772.769 ops/ms
+Iteration   4: 32730.183 ops/ms
+Iteration   5: 32780.715 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  32722.934 ±(99.9%) 219.346 ops/ms [Average]
+  (min, avg, max) = (32649.571, 32722.934, 32780.715), stdev = 56.963
+  CI (99.9%): [32503.588, 32942.280] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 8)
+
+# Run progress: 45.45% complete, ETA 00:06:07
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31841.450 ops/ms
+# Warmup Iteration   2: 32971.262 ops/ms
+# Warmup Iteration   3: 34709.772 ops/ms
+# Warmup Iteration   4: 34631.402 ops/ms
+# Warmup Iteration   5: 34715.440 ops/ms
+Iteration   1: 34702.345 ops/ms
+Iteration   2: 34847.505 ops/ms
+Iteration   3: 34908.792 ops/ms
+Iteration   4: 34769.210 ops/ms
+Iteration   5: 34704.550 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  34786.480 ±(99.9%) 348.551 ops/ms [Average]
+  (min, avg, max) = (34702.345, 34786.480, 34908.792), stdev = 90.518
+  CI (99.9%): [34437.929, 35135.032] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 9)
+
+# Run progress: 46.97% complete, ETA 00:05:57
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31298.293 ops/ms
+# Warmup Iteration   2: 32516.951 ops/ms
+# Warmup Iteration   3: 34005.582 ops/ms
+# Warmup Iteration   4: 33952.155 ops/ms
+# Warmup Iteration   5: 33950.670 ops/ms
+Iteration   1: 33882.836 ops/ms
+Iteration   2: 33905.826 ops/ms
+Iteration   3: 34037.672 ops/ms
+Iteration   4: 34054.867 ops/ms
+Iteration   5: 34062.809 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  33988.802 ±(99.9%) 335.381 ops/ms [Average]
+  (min, avg, max) = (33882.836, 33988.802, 34062.809), stdev = 87.097
+  CI (99.9%): [33653.421, 34324.183] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.combined2
+# Parameters: (toCopy = 10)
+
+# Run progress: 48.48% complete, ETA 00:05:46
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31468.225 ops/ms
+# Warmup Iteration   2: 32555.302 ops/ms
+# Warmup Iteration   3: 34131.820 ops/ms
+# Warmup Iteration   4: 34172.373 ops/ms
+# Warmup Iteration   5: 34141.783 ops/ms
+Iteration   1: 34138.487 ops/ms
+Iteration   2: 34157.039 ops/ms
+Iteration   3: 34207.947 ops/ms
+Iteration   4: 34148.469 ops/ms
+Iteration   5: 34126.144 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.combined2":
+  34155.617 ±(99.9%) 121.061 ops/ms [Average]
+  (min, avg, max) = (34126.144, 34155.617, 34207.947), stdev = 31.439
+  CI (99.9%): [34034.556, 34276.678] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 0)
+
+# Run progress: 50.00% complete, ETA 00:05:36
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 40953.674 ops/ms
+# Warmup Iteration   2: 41134.990 ops/ms
+# Warmup Iteration   3: 46149.683 ops/ms
+# Warmup Iteration   4: 46045.237 ops/ms
+# Warmup Iteration   5: 46217.962 ops/ms
+Iteration   1: 46218.916 ops/ms
+Iteration   2: 46169.626 ops/ms
+Iteration   3: 46131.447 ops/ms
+Iteration   4: 46154.901 ops/ms
+Iteration   5: 46164.032 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  46167.784 ±(99.9%) 123.555 ops/ms [Average]
+  (min, avg, max) = (46131.447, 46167.784, 46218.916), stdev = 32.087
+  CI (99.9%): [46044.229, 46291.339] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 1)
+
+# Run progress: 51.52% complete, ETA 00:05:26
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 37772.148 ops/ms
+# Warmup Iteration   2: 38630.622 ops/ms
+# Warmup Iteration   3: 42325.429 ops/ms
+# Warmup Iteration   4: 42286.243 ops/ms
+# Warmup Iteration   5: 42150.092 ops/ms
+Iteration   1: 42196.293 ops/ms
+Iteration   2: 41969.173 ops/ms
+Iteration   3: 41932.640 ops/ms
+Iteration   4: 42279.780 ops/ms
+Iteration   5: 42372.089 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  42149.995 ±(99.9%) 741.320 ops/ms [Average]
+  (min, avg, max) = (41932.640, 42149.995, 42372.089), stdev = 192.518
+  CI (99.9%): [41408.675, 42891.315] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 2)
+
+# Run progress: 53.03% complete, ETA 00:05:16
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 35815.154 ops/ms
+# Warmup Iteration   2: 37693.124 ops/ms
+# Warmup Iteration   3: 38914.684 ops/ms
+# Warmup Iteration   4: 38990.451 ops/ms
+# Warmup Iteration   5: 38999.995 ops/ms
+Iteration   1: 38908.861 ops/ms
+Iteration   2: 38997.294 ops/ms
+Iteration   3: 38929.431 ops/ms
+Iteration   4: 39113.283 ops/ms
+Iteration   5: 39136.460 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  39017.066 ±(99.9%) 400.596 ops/ms [Average]
+  (min, avg, max) = (38908.861, 39017.066, 39136.460), stdev = 104.034
+  CI (99.9%): [38616.469, 39417.662] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 3)
+
+# Run progress: 54.55% complete, ETA 00:05:06
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 32486.642 ops/ms
+# Warmup Iteration   2: 32474.323 ops/ms
+# Warmup Iteration   3: 35841.679 ops/ms
+# Warmup Iteration   4: 35840.968 ops/ms
+# Warmup Iteration   5: 35950.059 ops/ms
+Iteration   1: 35970.332 ops/ms
+Iteration   2: 35984.071 ops/ms
+Iteration   3: 35893.962 ops/ms
+Iteration   4: 36097.840 ops/ms
+Iteration   5: 36032.844 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  35995.810 ±(99.9%) 291.619 ops/ms [Average]
+  (min, avg, max) = (35893.962, 35995.810, 36097.840), stdev = 75.732
+  CI (99.9%): [35704.191, 36287.428] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 4)
+
+# Run progress: 56.06% complete, ETA 00:04:55
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30733.598 ops/ms
+# Warmup Iteration   2: 32117.311 ops/ms
+# Warmup Iteration   3: 35417.098 ops/ms
+# Warmup Iteration   4: 35523.736 ops/ms
+# Warmup Iteration   5: 35489.195 ops/ms
+Iteration   1: 35444.355 ops/ms
+Iteration   2: 35530.165 ops/ms
+Iteration   3: 35488.075 ops/ms
+Iteration   4: 35563.521 ops/ms
+Iteration   5: 34886.630 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  35382.549 ±(99.9%) 1081.326 ops/ms [Average]
+  (min, avg, max) = (34886.630, 35382.549, 35563.521), stdev = 280.817
+  CI (99.9%): [34301.224, 36463.875] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 5)
+
+# Run progress: 57.58% complete, ETA 00:04:45
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31145.226 ops/ms
+# Warmup Iteration   2: 29970.151 ops/ms
+# Warmup Iteration   3: 33247.830 ops/ms
+# Warmup Iteration   4: 33293.753 ops/ms
+# Warmup Iteration   5: 34194.725 ops/ms
+Iteration   1: 34170.064 ops/ms
+Iteration   2: 34104.846 ops/ms
+Iteration   3: 34024.470 ops/ms
+Iteration   4: 34087.512 ops/ms
+Iteration   5: 34119.658 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  34101.310 ±(99.9%) 203.493 ops/ms [Average]
+  (min, avg, max) = (34024.470, 34101.310, 34170.064), stdev = 52.847
+  CI (99.9%): [33897.817, 34304.803] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 6)
+
+# Run progress: 59.09% complete, ETA 00:04:35
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 29132.982 ops/ms
+# Warmup Iteration   2: 28887.560 ops/ms
+# Warmup Iteration   3: 31948.309 ops/ms
+# Warmup Iteration   4: 32156.636 ops/ms
+# Warmup Iteration   5: 32138.504 ops/ms
+Iteration   1: 32001.533 ops/ms
+Iteration   2: 32022.937 ops/ms
+Iteration   3: 32021.466 ops/ms
+Iteration   4: 32017.143 ops/ms
+Iteration   5: 32030.531 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  32018.722 ±(99.9%) 41.414 ops/ms [Average]
+  (min, avg, max) = (32001.533, 32018.722, 32030.531), stdev = 10.755
+  CI (99.9%): [31977.308, 32060.136] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 7)
+
+# Run progress: 60.61% complete, ETA 00:04:25
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 28971.893 ops/ms
+# Warmup Iteration   2: 29183.916 ops/ms
+# Warmup Iteration   3: 31209.263 ops/ms
+# Warmup Iteration   4: 31172.262 ops/ms
+# Warmup Iteration   5: 31227.522 ops/ms
+Iteration   1: 31225.605 ops/ms
+Iteration   2: 31185.394 ops/ms
+Iteration   3: 31220.926 ops/ms
+Iteration   4: 31201.077 ops/ms
+Iteration   5: 31205.979 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  31207.796 ±(99.9%) 62.085 ops/ms [Average]
+  (min, avg, max) = (31185.394, 31207.796, 31225.605), stdev = 16.123
+  CI (99.9%): [31145.711, 31269.881] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 8)
+
+# Run progress: 62.12% complete, ETA 00:04:15
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 26761.201 ops/ms
+# Warmup Iteration   2: 27988.448 ops/ms
+# Warmup Iteration   3: 29923.603 ops/ms
+# Warmup Iteration   4: 29948.648 ops/ms
+# Warmup Iteration   5: 29925.960 ops/ms
+Iteration   1: 29966.381 ops/ms
+Iteration   2: 29916.244 ops/ms
+Iteration   3: 29923.229 ops/ms
+Iteration   4: 29946.937 ops/ms
+Iteration   5: 29826.419 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  29915.842 ±(99.9%) 207.116 ops/ms [Average]
+  (min, avg, max) = (29826.419, 29915.842, 29966.381), stdev = 53.787
+  CI (99.9%): [29708.726, 30122.958] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 9)
+
+# Run progress: 63.64% complete, ETA 00:04:04
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 26945.695 ops/ms
+# Warmup Iteration   2: 27128.599 ops/ms
+# Warmup Iteration   3: 28303.706 ops/ms
+# Warmup Iteration   4: 28313.858 ops/ms
+# Warmup Iteration   5: 28319.102 ops/ms
+Iteration   1: 28558.692 ops/ms
+Iteration   2: 28495.450 ops/ms
+Iteration   3: 28490.274 ops/ms
+Iteration   4: 28494.838 ops/ms
+Iteration   5: 28428.470 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  28493.545 ±(99.9%) 177.453 ops/ms [Average]
+  (min, avg, max) = (28428.470, 28493.545, 28558.692), stdev = 46.084
+  CI (99.9%): [28316.092, 28670.998] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.loop
+# Parameters: (toCopy = 10)
+
+# Run progress: 65.15% complete, ETA 00:03:54
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 26061.758 ops/ms
+# Warmup Iteration   2: 26170.339 ops/ms
+# Warmup Iteration   3: 26985.730 ops/ms
+# Warmup Iteration   4: 26981.600 ops/ms
+# Warmup Iteration   5: 27025.956 ops/ms
+Iteration   1: 27035.387 ops/ms
+Iteration   2: 26957.998 ops/ms
+Iteration   3: 27027.342 ops/ms
+Iteration   4: 27022.832 ops/ms
+Iteration   5: 27005.046 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.loop":
+  27009.721 ±(99.9%) 119.281 ops/ms [Average]
+  (min, avg, max) = (26957.998, 27009.721, 27035.387), stdev = 30.977
+  CI (99.9%): [26890.440, 27129.002] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 0)
+
+# Run progress: 66.67% complete, ETA 00:03:44
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 40825.468 ops/ms
+# Warmup Iteration   2: 40939.344 ops/ms
+# Warmup Iteration   3: 46283.665 ops/ms
+# Warmup Iteration   4: 46271.654 ops/ms
+# Warmup Iteration   5: 46247.992 ops/ms
+Iteration   1: 46232.179 ops/ms
+Iteration   2: 46331.596 ops/ms
+Iteration   3: 46220.616 ops/ms
+Iteration   4: 46243.734 ops/ms
+Iteration   5: 46270.773 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  46259.780 ±(99.9%) 170.383 ops/ms [Average]
+  (min, avg, max) = (46220.616, 46259.780, 46331.596), stdev = 44.248
+  CI (99.9%): [46089.397, 46430.162] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 1)
+
+# Run progress: 68.18% complete, ETA 00:03:34
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 37939.562 ops/ms
+# Warmup Iteration   2: 35884.738 ops/ms
+# Warmup Iteration   3: 41250.524 ops/ms
+# Warmup Iteration   4: 41291.799 ops/ms
+# Warmup Iteration   5: 41299.836 ops/ms
+Iteration   1: 41448.873 ops/ms
+Iteration   2: 41353.416 ops/ms
+Iteration   3: 41592.017 ops/ms
+Iteration   4: 41442.648 ops/ms
+Iteration   5: 41356.841 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  41438.759 ±(99.9%) 373.330 ops/ms [Average]
+  (min, avg, max) = (41353.416, 41438.759, 41592.017), stdev = 96.953
+  CI (99.9%): [41065.429, 41812.090] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 2)
+
+# Run progress: 69.70% complete, ETA 00:03:24
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 37911.259 ops/ms
+# Warmup Iteration   2: 38016.730 ops/ms
+# Warmup Iteration   3: 38827.975 ops/ms
+# Warmup Iteration   4: 38723.110 ops/ms
+# Warmup Iteration   5: 38772.211 ops/ms
+Iteration   1: 38640.092 ops/ms
+Iteration   2: 38751.446 ops/ms
+Iteration   3: 38866.180 ops/ms
+Iteration   4: 38949.862 ops/ms
+Iteration   5: 38906.871 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  38822.890 ±(99.9%) 485.425 ops/ms [Average]
+  (min, avg, max) = (38640.092, 38822.890, 38949.862), stdev = 126.063
+  CI (99.9%): [38337.465, 39308.315] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 3)
+
+# Run progress: 71.21% complete, ETA 00:03:13
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 34321.102 ops/ms
+# Warmup Iteration   2: 38000.478 ops/ms
+# Warmup Iteration   3: 34820.791 ops/ms
+# Warmup Iteration   4: 38231.165 ops/ms
+# Warmup Iteration   5: 37582.803 ops/ms
+Iteration   1: 37538.463 ops/ms
+Iteration   2: 37155.778 ops/ms
+Iteration   3: 37285.918 ops/ms
+Iteration   4: 37427.516 ops/ms
+Iteration   5: 37295.395 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  37340.614 ±(99.9%) 564.277 ops/ms [Average]
+  (min, avg, max) = (37155.778, 37340.614, 37538.463), stdev = 146.541
+  CI (99.9%): [36776.337, 37904.891] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 4)
+
+# Run progress: 72.73% complete, ETA 00:03:03
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 33518.879 ops/ms
+# Warmup Iteration   2: 33891.162 ops/ms
+# Warmup Iteration   3: 37277.568 ops/ms
+# Warmup Iteration   4: 37158.126 ops/ms
+# Warmup Iteration   5: 37147.414 ops/ms
+Iteration   1: 37077.662 ops/ms
+Iteration   2: 37185.746 ops/ms
+Iteration   3: 37152.713 ops/ms
+Iteration   4: 37200.171 ops/ms
+Iteration   5: 37168.336 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  37156.925 ±(99.9%) 183.982 ops/ms [Average]
+  (min, avg, max) = (37077.662, 37156.925, 37200.171), stdev = 47.779
+  CI (99.9%): [36972.944, 37340.907] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 5)
+
+# Run progress: 74.24% complete, ETA 00:02:53
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 32563.598 ops/ms
+# Warmup Iteration   2: 32625.950 ops/ms
+# Warmup Iteration   3: 36722.062 ops/ms
+# Warmup Iteration   4: 36753.126 ops/ms
+# Warmup Iteration   5: 36884.364 ops/ms
+Iteration   1: 36715.979 ops/ms
+Iteration   2: 36759.284 ops/ms
+Iteration   3: 36726.697 ops/ms
+Iteration   4: 36732.924 ops/ms
+Iteration   5: 36713.025 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  36729.582 ±(99.9%) 71.025 ops/ms [Average]
+  (min, avg, max) = (36713.025, 36729.582, 36759.284), stdev = 18.445
+  CI (99.9%): [36658.556, 36800.607] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 6)
+
+# Run progress: 75.76% complete, ETA 00:02:43
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31854.805 ops/ms
+# Warmup Iteration   2: 32954.680 ops/ms
+# Warmup Iteration   3: 32203.900 ops/ms
+# Warmup Iteration   4: 35390.833 ops/ms
+# Warmup Iteration   5: 35383.408 ops/ms
+Iteration   1: 35418.100 ops/ms
+Iteration   2: 35450.419 ops/ms
+Iteration   3: 35533.003 ops/ms
+Iteration   4: 35502.047 ops/ms
+Iteration   5: 35533.641 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  35487.442 ±(99.9%) 198.246 ops/ms [Average]
+  (min, avg, max) = (35418.100, 35487.442, 35533.641), stdev = 51.484
+  CI (99.9%): [35289.195, 35685.688] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 7)
+
+# Run progress: 77.27% complete, ETA 00:02:33
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31601.803 ops/ms
+# Warmup Iteration   2: 31654.524 ops/ms
+# Warmup Iteration   3: 33535.875 ops/ms
+# Warmup Iteration   4: 33545.592 ops/ms
+# Warmup Iteration   5: 33453.017 ops/ms
+Iteration   1: 33555.047 ops/ms
+Iteration   2: 33502.154 ops/ms
+Iteration   3: 33550.514 ops/ms
+Iteration   4: 33716.946 ops/ms
+Iteration   5: 33649.572 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  33594.846 ±(99.9%) 333.722 ops/ms [Average]
+  (min, avg, max) = (33502.154, 33594.846, 33716.946), stdev = 86.667
+  CI (99.9%): [33261.124, 33928.569] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 8)
+
+# Run progress: 78.79% complete, ETA 00:02:22
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 28435.909 ops/ms
+# Warmup Iteration   2: 28750.882 ops/ms
+# Warmup Iteration   3: 28749.211 ops/ms
+# Warmup Iteration   4: 31863.364 ops/ms
+# Warmup Iteration   5: 31853.761 ops/ms
+Iteration   1: 31882.399 ops/ms
+Iteration   2: 31829.377 ops/ms
+Iteration   3: 31871.365 ops/ms
+Iteration   4: 31852.529 ops/ms
+Iteration   5: 31874.918 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  31862.117 ±(99.9%) 82.241 ops/ms [Average]
+  (min, avg, max) = (31829.377, 31862.117, 31882.399), stdev = 21.358
+  CI (99.9%): [31779.876, 31944.358] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 9)
+
+# Run progress: 80.30% complete, ETA 00:02:12
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 28065.263 ops/ms
+# Warmup Iteration   2: 28513.828 ops/ms
+# Warmup Iteration   3: 28729.374 ops/ms
+# Warmup Iteration   4: 30449.254 ops/ms
+# Warmup Iteration   5: 30380.757 ops/ms
+Iteration   1: 30417.346 ops/ms
+Iteration   2: 30415.997 ops/ms
+Iteration   3: 30230.186 ops/ms
+Iteration   4: 30339.986 ops/ms
+Iteration   5: 30452.774 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  30371.258 ±(99.9%) 342.522 ops/ms [Average]
+  (min, avg, max) = (30230.186, 30371.258, 30452.774), stdev = 88.952
+  CI (99.9%): [30028.736, 30713.780] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manual
+# Parameters: (toCopy = 10)
+
+# Run progress: 81.82% complete, ETA 00:02:02
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 26739.652 ops/ms
+# Warmup Iteration   2: 24334.461 ops/ms
+# Warmup Iteration   3: 29581.911 ops/ms
+# Warmup Iteration   4: 29660.119 ops/ms
+# Warmup Iteration   5: 29567.883 ops/ms
+Iteration   1: 29664.081 ops/ms
+Iteration   2: 29593.517 ops/ms
+Iteration   3: 29650.119 ops/ms
+Iteration   4: 29592.299 ops/ms
+Iteration   5: 29627.430 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manual":
+  29625.489 ±(99.9%) 125.124 ops/ms [Average]
+  (min, avg, max) = (29592.299, 29625.489, 29664.081), stdev = 32.494
+  CI (99.9%): [29500.366, 29750.613] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 0)
+
+# Run progress: 83.33% complete, ETA 00:01:52
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 39852.022 ops/ms
+# Warmup Iteration   2: 39948.462 ops/ms
+# Warmup Iteration   3: 44790.941 ops/ms
+# Warmup Iteration   4: 44879.558 ops/ms
+# Warmup Iteration   5: 44897.412 ops/ms
+Iteration   1: 44934.523 ops/ms
+Iteration   2: 44386.452 ops/ms
+Iteration   3: 44505.793 ops/ms
+Iteration   4: 44406.879 ops/ms
+Iteration   5: 44343.193 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  44515.368 ±(99.9%) 930.981 ops/ms [Average]
+  (min, avg, max) = (44343.193, 44515.368, 44934.523), stdev = 241.773
+  CI (99.9%): [43584.388, 45446.349] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 1)
+
+# Run progress: 84.85% complete, ETA 00:01:42
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 38536.990 ops/ms
+# Warmup Iteration   2: 36662.597 ops/ms
+# Warmup Iteration   3: 40568.214 ops/ms
+# Warmup Iteration   4: 40478.632 ops/ms
+# Warmup Iteration   5: 40486.800 ops/ms
+Iteration   1: 40735.038 ops/ms
+Iteration   2: 41026.378 ops/ms
+Iteration   3: 40954.475 ops/ms
+Iteration   4: 40859.569 ops/ms
+Iteration   5: 41422.826 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  40999.657 ±(99.9%) 1003.156 ops/ms [Average]
+  (min, avg, max) = (40735.038, 40999.657, 41422.826), stdev = 260.516
+  CI (99.9%): [39996.501, 42002.813] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 2)
+
+# Run progress: 86.36% complete, ETA 00:01:31
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 36469.187 ops/ms
+# Warmup Iteration   2: 37133.339 ops/ms
+# Warmup Iteration   3: 38676.912 ops/ms
+# Warmup Iteration   4: 38483.152 ops/ms
+# Warmup Iteration   5: 38806.285 ops/ms
+Iteration   1: 38761.330 ops/ms
+Iteration   2: 38375.134 ops/ms
+Iteration   3: 38961.631 ops/ms
+Iteration   4: 39038.568 ops/ms
+Iteration   5: 38218.494 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  38671.031 ±(99.9%) 1388.410 ops/ms [Average]
+  (min, avg, max) = (38218.494, 38671.031, 39038.568), stdev = 360.566
+  CI (99.9%): [37282.621, 40059.441] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 3)
+
+# Run progress: 87.88% complete, ETA 00:01:21
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 33252.124 ops/ms
+# Warmup Iteration   2: 32918.218 ops/ms
+# Warmup Iteration   3: 37246.044 ops/ms
+# Warmup Iteration   4: 37092.279 ops/ms
+# Warmup Iteration   5: 37195.605 ops/ms
+Iteration   1: 37204.072 ops/ms
+Iteration   2: 37002.994 ops/ms
+Iteration   3: 35970.360 ops/ms
+Iteration   4: 37160.245 ops/ms
+Iteration   5: 37194.702 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  36906.475 ±(99.9%) 2039.084 ops/ms [Average]
+  (min, avg, max) = (35970.360, 36906.475, 37204.072), stdev = 529.544
+  CI (99.9%): [34867.390, 38945.559] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 4)
+
+# Run progress: 89.39% complete, ETA 00:01:11
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 31904.138 ops/ms
+# Warmup Iteration   2: 31887.319 ops/ms
+# Warmup Iteration   3: 36229.421 ops/ms
+# Warmup Iteration   4: 36179.138 ops/ms
+# Warmup Iteration   5: 36163.169 ops/ms
+Iteration   1: 36221.421 ops/ms
+Iteration   2: 36092.356 ops/ms
+Iteration   3: 36094.142 ops/ms
+Iteration   4: 36146.323 ops/ms
+Iteration   5: 36208.816 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  36152.612 ±(99.9%) 235.666 ops/ms [Average]
+  (min, avg, max) = (36092.356, 36152.612, 36221.421), stdev = 61.202
+  CI (99.9%): [35916.946, 36388.278] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 5)
+
+# Run progress: 90.91% complete, ETA 00:01:01
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30404.612 ops/ms
+# Warmup Iteration   2: 30019.865 ops/ms
+# Warmup Iteration   3: 33227.696 ops/ms
+# Warmup Iteration   4: 33111.111 ops/ms
+# Warmup Iteration   5: 33173.617 ops/ms
+Iteration   1: 33160.160 ops/ms
+Iteration   2: 33243.526 ops/ms
+Iteration   3: 33231.953 ops/ms
+Iteration   4: 33238.496 ops/ms
+Iteration   5: 33233.448 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  33221.517 ±(99.9%) 133.232 ops/ms [Average]
+  (min, avg, max) = (33160.160, 33221.517, 33243.526), stdev = 34.600
+  CI (99.9%): [33088.285, 33354.748] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 6)
+
+# Run progress: 92.42% complete, ETA 00:00:51
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 30301.079 ops/ms
+# Warmup Iteration   2: 29878.715 ops/ms
+# Warmup Iteration   3: 32883.832 ops/ms
+# Warmup Iteration   4: 32835.480 ops/ms
+# Warmup Iteration   5: 32913.007 ops/ms
+Iteration   1: 32913.954 ops/ms
+Iteration   2: 32820.461 ops/ms
+Iteration   3: 32890.533 ops/ms
+Iteration   4: 32841.095 ops/ms
+Iteration   5: 32854.265 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  32864.062 ±(99.9%) 145.543 ops/ms [Average]
+  (min, avg, max) = (32820.461, 32864.062, 32913.954), stdev = 37.797
+  CI (99.9%): [32718.519, 33009.605] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 7)
+
+# Run progress: 93.94% complete, ETA 00:00:40
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 29061.376 ops/ms
+# Warmup Iteration   2: 29137.399 ops/ms
+# Warmup Iteration   3: 31229.504 ops/ms
+# Warmup Iteration   4: 31145.778 ops/ms
+# Warmup Iteration   5: 31230.329 ops/ms
+Iteration   1: 31259.435 ops/ms
+Iteration   2: 31206.805 ops/ms
+Iteration   3: 31220.235 ops/ms
+Iteration   4: 31208.678 ops/ms
+Iteration   5: 31231.783 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  31225.387 ±(99.9%) 82.838 ops/ms [Average]
+  (min, avg, max) = (31206.805, 31225.387, 31259.435), stdev = 21.513
+  CI (99.9%): [31142.549, 31308.225] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 8)
+
+# Run progress: 95.45% complete, ETA 00:00:30
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 27456.233 ops/ms
+# Warmup Iteration   2: 27748.468 ops/ms
+# Warmup Iteration   3: 29601.956 ops/ms
+# Warmup Iteration   4: 29562.962 ops/ms
+# Warmup Iteration   5: 29579.599 ops/ms
+Iteration   1: 29745.896 ops/ms
+Iteration   2: 29778.923 ops/ms
+Iteration   3: 29746.544 ops/ms
+Iteration   4: 29814.742 ops/ms
+Iteration   5: 29769.553 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  29771.132 ±(99.9%) 109.022 ops/ms [Average]
+  (min, avg, max) = (29745.896, 29771.132, 29814.742), stdev = 28.313
+  CI (99.9%): [29662.109, 29880.154] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 9)
+
+# Run progress: 96.97% complete, ETA 00:00:20
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 25695.246 ops/ms
+# Warmup Iteration   2: 25857.248 ops/ms
+# Warmup Iteration   3: 27099.276 ops/ms
+# Warmup Iteration   4: 27090.243 ops/ms
+# Warmup Iteration   5: 27148.487 ops/ms
+Iteration   1: 27141.552 ops/ms
+Iteration   2: 28270.920 ops/ms
+Iteration   3: 28304.584 ops/ms
+Iteration   4: 28292.661 ops/ms
+Iteration   5: 28322.871 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  28066.517 ±(99.9%) 1992.383 ops/ms [Average]
+  (min, avg, max) = (27141.552, 28066.517, 28322.871), stdev = 517.415
+  CI (99.9%): [26074.135, 30058.900] (assumes normal distribution)
+
+
+# JMH version: 1.22
+# VM version: JDK 1.8.0_241, Java HotSpot(TM) 64-Bit Server VM, 25.241-b07
+# VM invoker: /home/tre/JTools/jdk/java-8-oracle-1.8.0.241/jre/bin/java
+# VM options: <none>
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 1 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: com.github.zabetak.benchmark.Arraycopy.manualSwitch
+# Parameters: (toCopy = 10)
+
+# Run progress: 98.48% complete, ETA 00:00:10
+# Fork: 1 of 1
+Picked up JAVA_TOOL_OPTIONS: 
+# Warmup Iteration   1: 24976.542 ops/ms
+# Warmup Iteration   2: 24918.632 ops/ms
+# Warmup Iteration   3: 26641.490 ops/ms
+# Warmup Iteration   4: 26646.791 ops/ms
+# Warmup Iteration   5: 26624.862 ops/ms
+Iteration   1: 26689.773 ops/ms
+Iteration   2: 26511.627 ops/ms
+Iteration   3: 26660.436 ops/ms
+Iteration   4: 26701.005 ops/ms
+Iteration   5: 26633.207 ops/ms
+
+
+Result "com.github.zabetak.benchmark.Arraycopy.manualSwitch":
+  26639.210 ±(99.9%) 292.871 ops/ms [Average]
+  (min, avg, max) = (26511.627, 26639.210, 26701.005), stdev = 76.058
+  CI (99.9%): [26346.338, 26932.081] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:11:13
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark               (toCopy)   Mode  Cnt      Score      Error   Units
+Arraycopy.arrayCopy            0  thrpt    5  42902.296 ±  339.445  ops/ms
+Arraycopy.arrayCopy            1  thrpt    5  35977.350 ± 1784.354  ops/ms
+Arraycopy.arrayCopy            2  thrpt    5  35650.304 ±   65.346  ops/ms
+Arraycopy.arrayCopy            3  thrpt    5  34693.879 ±   83.515  ops/ms
+Arraycopy.arrayCopy            4  thrpt    5  33086.526 ±   98.321  ops/ms
+Arraycopy.arrayCopy            5  thrpt    5  32668.581 ±   94.062  ops/ms
+Arraycopy.arrayCopy            6  thrpt    5  33591.224 ±  227.170  ops/ms
+Arraycopy.arrayCopy            7  thrpt    5  32467.683 ± 3028.225  ops/ms
+Arraycopy.arrayCopy            8  thrpt    5  33984.733 ±  179.547  ops/ms
+Arraycopy.arrayCopy            9  thrpt    5  32631.859 ±   93.876  ops/ms
+Arraycopy.arrayCopy           10  thrpt    5  32108.109 ± 3017.296  ops/ms
+Arraycopy.combined1            0  thrpt    5  43915.528 ±  265.919  ops/ms
+Arraycopy.combined1            1  thrpt    5  40498.172 ±  251.939  ops/ms
+Arraycopy.combined1            2  thrpt    5  39197.169 ±  584.866  ops/ms
+Arraycopy.combined1            3  thrpt    5  36959.306 ±  195.982  ops/ms
+Arraycopy.combined1            4  thrpt    5  34983.259 ±   28.469  ops/ms
+Arraycopy.combined1            5  thrpt    5  33635.018 ± 1489.833  ops/ms
+Arraycopy.combined1            6  thrpt    5  34387.704 ±  306.352  ops/ms
+Arraycopy.combined1            7  thrpt    5  33961.685 ±  343.525  ops/ms
+Arraycopy.combined1            8  thrpt    5  32792.878 ±  189.881  ops/ms
+Arraycopy.combined1            9  thrpt    5  33774.198 ±  382.675  ops/ms
+Arraycopy.combined1           10  thrpt    5  33727.907 ±  195.347  ops/ms
+Arraycopy.combined2            0  thrpt    5  45512.684 ±   80.023  ops/ms
+Arraycopy.combined2            1  thrpt    5  40790.495 ±   57.324  ops/ms
+Arraycopy.combined2            2  thrpt    5  39020.786 ±  245.894  ops/ms
+Arraycopy.combined2            3  thrpt    5  35090.971 ±  183.770  ops/ms
+Arraycopy.combined2            4  thrpt    5  34975.631 ±  285.287  ops/ms
+Arraycopy.combined2            5  thrpt    5  33378.283 ±  162.393  ops/ms
+Arraycopy.combined2            6  thrpt    5  34567.974 ±   64.935  ops/ms
+Arraycopy.combined2            7  thrpt    5  32722.934 ±  219.346  ops/ms
+Arraycopy.combined2            8  thrpt    5  34786.480 ±  348.551  ops/ms
+Arraycopy.combined2            9  thrpt    5  33988.802 ±  335.381  ops/ms
+Arraycopy.combined2           10  thrpt    5  34155.617 ±  121.061  ops/ms
+Arraycopy.loop                 0  thrpt    5  46167.784 ±  123.555  ops/ms
+Arraycopy.loop                 1  thrpt    5  42149.995 ±  741.320  ops/ms
+Arraycopy.loop                 2  thrpt    5  39017.066 ±  400.596  ops/ms
+Arraycopy.loop                 3  thrpt    5  35995.810 ±  291.619  ops/ms
+Arraycopy.loop                 4  thrpt    5  35382.549 ± 1081.326  ops/ms
+Arraycopy.loop                 5  thrpt    5  34101.310 ±  203.493  ops/ms
+Arraycopy.loop                 6  thrpt    5  32018.722 ±   41.414  ops/ms
+Arraycopy.loop                 7  thrpt    5  31207.796 ±   62.085  ops/ms
+Arraycopy.loop                 8  thrpt    5  29915.842 ±  207.116  ops/ms
+Arraycopy.loop                 9  thrpt    5  28493.545 ±  177.453  ops/ms
+Arraycopy.loop                10  thrpt    5  27009.721 ±  119.281  ops/ms
+Arraycopy.manual               0  thrpt    5  46259.780 ±  170.383  ops/ms
+Arraycopy.manual               1  thrpt    5  41438.759 ±  373.330  ops/ms
+Arraycopy.manual               2  thrpt    5  38822.890 ±  485.425  ops/ms
+Arraycopy.manual               3  thrpt    5  37340.614 ±  564.277  ops/ms
+Arraycopy.manual               4  thrpt    5  37156.925 ±  183.982  ops/ms
+Arraycopy.manual               5  thrpt    5  36729.582 ±   71.025  ops/ms
+Arraycopy.manual               6  thrpt    5  35487.442 ±  198.246  ops/ms
+Arraycopy.manual               7  thrpt    5  33594.846 ±  333.722  ops/ms
+Arraycopy.manual               8  thrpt    5  31862.117 ±   82.241  ops/ms
+Arraycopy.manual               9  thrpt    5  30371.258 ±  342.522  ops/ms
+Arraycopy.manual              10  thrpt    5  29625.489 ±  125.124  ops/ms
+Arraycopy.manualSwitch         0  thrpt    5  44515.368 ±  930.981  ops/ms
+Arraycopy.manualSwitch         1  thrpt    5  40999.657 ± 1003.156  ops/ms
+Arraycopy.manualSwitch         2  thrpt    5  38671.031 ± 1388.410  ops/ms
+Arraycopy.manualSwitch         3  thrpt    5  36906.475 ± 2039.084  ops/ms
+Arraycopy.manualSwitch         4  thrpt    5  36152.612 ±  235.666  ops/ms
+Arraycopy.manualSwitch         5  thrpt    5  33221.517 ±  133.232  ops/ms
+Arraycopy.manualSwitch         6  thrpt    5  32864.062 ±  145.543  ops/ms
+Arraycopy.manualSwitch         7  thrpt    5  31225.387 ±   82.838  ops/ms
+Arraycopy.manualSwitch         8  thrpt    5  29771.132 ±  109.022  ops/ms
+Arraycopy.manualSwitch         9  thrpt    5  28066.517 ± 1992.383  ops/ms
+Arraycopy.manualSwitch        10  thrpt    5  26639.210 ±  292.871  ops/ms
