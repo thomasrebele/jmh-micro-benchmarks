@@ -104,9 +104,9 @@ public class PartialSortBenchmark {
     @State(Scope.Benchmark)
     public static class QueryState {
 
-        @Param({"1000000", "10000000"})
+        @Param({"10000", "1000000", "10000000"})
         public int tupleNumber;
-        @Param({"-1", "10", "100"})
+        @Param({"-1", "10", "100", "10000"})
         public int limit;
         @Param({"2"})
         public int fieldsNumber;
