@@ -236,7 +236,7 @@ public class PartialSortBenchmark {
         long size = 0;
         for (Record i : iState.data) {
             if (iState.limit > 0 && size >= iState.limit) {
-                if (iState.comparator.compare(i, map.lastKey()) > 0)
+                if (iState.comparator.compare(i, map.lastKey()) >= 0)
                     continue;
                 treeMapRemoveLastEntry(map);
                 size--;
