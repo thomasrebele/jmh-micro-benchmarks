@@ -9,11 +9,6 @@ public class LimitSort<E> {
 
     private static int INIT_ARRAY = 512 / 2;
 
-    private Object[] content;
-    private Comparator<? super Object> cmp;
-    private int limit;
-    private int size = 0;
-
     static class Etmp {
         Object o;
         int idx;
@@ -24,19 +19,22 @@ public class LimitSort<E> {
         }
     }
 
-    private List<Etmp> toInsert = new ArrayList<>();
+    private Object[] content;
+    private Comparator<? super Object> cmp;
+    private int limit;
+    private int size = 0;
 
-    private Comparator<Etmp> cmpTmp = (a, b) -> {
-        int c = Integer.compare(a.idx, b.idx);
-        if (c != 0)
-            return c;
-        return cmp.compare(a.o, b.o);
-    };
-
-    /** Beginning of array is sorted up to (excluding) this index */
-    private int completeUntil = 0;
+    /**
+     * End of array contains all relevant elements and is sorted between
+     * completeFrom and tail. In other words: no elements of toInsert need to be
+     * inserted between those two indices.
+     */
     private int completeFrom;
+
+    /** Marks the currently biggest element */
     private int tail;
+
+    private List<Etmp> toInsert = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
     LimitSort(Comparator<E> comparator, int limit) {
@@ -62,41 +60,44 @@ public class LimitSort<E> {
         return newSize;
     }
 
+    /** Searches where the object would need to be inserted into the array */
+    private int binarySearch(Object o) {
+        int left = 0;
+        int right = tail - 1;
+        while (left <= right) {
+            int middle = (left + right) >>> 1;
+            int c = cmp.compare(o, content[middle]);
+            if (c > 0)
+                left = middle + 1;
+            else
+                right = middle - 1;
+        }
+        return left;
+    }
+
     public void offer(E e) {
         if (size < limit) {
             ensureCapacity(size + 1);
-
             content[size++] = e;
             tail++;
             return;
         }
 
-        if (tail < completeFrom) {
+        if (tail < completeFrom)
             sort();
-        }
 
-        if (cmp.compare(content[tail], e) <= 0) {
+        if (cmp.compare(content[tail], e) <= 0)
             return;
-        }
 
-        // we need to make space
-        int idx = Arrays.binarySearch(content, 0, tail, e, (a, b) -> {
-            int c = cmp.compare(a, b);
-            if (c == 0)
-                return -1;
-            return c;
-        });
-        if (idx < 0)
-            idx = -idx - 1;
-
+        int idx = binarySearch(e);
+        // we can just replace the tail
         if (idx == tail && idx > completeFrom) {
             content[tail] = e;
             return;
         }
 
-        completeUntil = Math.min(completeUntil, idx);
+        // we need to make space
         completeFrom = Math.max(completeFrom, idx);
-
         content[tail--] = null;
         Etmp n = new Etmp();
         n.idx = idx;
@@ -105,7 +106,6 @@ public class LimitSort<E> {
     }
 
     private void markSorted() {
-        completeUntil = size;
         tail = size - 1;
         completeFrom = 0;
     }
@@ -117,7 +117,15 @@ public class LimitSort<E> {
             return;
         }
 
-        toInsert.sort(cmpTmp);
+        toInsert.sort((a, b) -> {
+            int c = Integer.compare(a.idx, b.idx);
+            if (c != 0)
+                return c;
+            return cmp.compare(a.o, b.o);
+        });
+
+        // TODO tre possible attack: force copying of a big slice after every other new
+        // element. Avoid by analyzing toInsert and process a part.
 
         int contentOutIdx = size;
         int contentInIdx = tail + 1;
@@ -147,7 +155,8 @@ public class LimitSort<E> {
     public Iterable<E> getResult() {
         sort();
         Object[] result = content;
-        if (this.size == content.length) {
+        content = null;
+        if (this.size == result.length) {
             return (Iterable<E>) Arrays.asList(result);
         } else {
             return (Iterable<E>) Arrays.asList(result).subList(0, size);
@@ -160,10 +169,6 @@ public class LimitSort<E> {
 
             if (i == tail) {
                 System.out.print(" #" + tail + "# ");
-            }
-
-            if (i == completeUntil) {
-                System.out.print(" <" + completeUntil + " ");
             }
 
             if (i == completeFrom) {
