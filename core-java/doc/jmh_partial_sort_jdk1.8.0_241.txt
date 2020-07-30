@@ -5080,258 +5080,270 @@ the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from th
 Do not assume the numbers tell you what you want them to tell.
 
 Benchmark                                        (fieldType)  (fieldsNumber)  (limit)  (tupleNumber)  Mode  Cnt           Score      Error  Units
-PartialSortBenchmark.array                               INT               2       10          10000  avgt    5           0.125 ±    0.002  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2       10          10000  avgt    5       51295.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2       10          10000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2       10        1000000  avgt    5          19.129 ±    0.213  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2       10        1000000  avgt    5     5002160.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2       10        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2       10       10000000  avgt    5         199.443 ±    2.441  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2       10       10000000  avgt    5    50002510.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2       10       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2      100          10000  avgt    5           0.210 ±    0.001  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2      100          10000  avgt    5       67825.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2      100          10000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2      100        1000000  avgt    5          18.987 ±    0.192  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2      100        1000000  avgt    5     5033020.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2      100        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2      100       10000000  avgt    5         202.739 ±   12.578  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2      100       10000000  avgt    5    50042465.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2      100       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2    10000          10000  avgt    5           5.374 ±    0.183  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2    10000          10000  avgt    5      595065.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2    10000        1000000  avgt    5          65.285 ±    1.108  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2    10000        1000000  avgt    5     8600800.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2    10000        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.array                               INT               2    10000       10000000  avgt    5         308.001 ±    6.237  ms/op
-PartialSortBenchmark.array:comparisons                   INT               2    10000       10000000  avgt    5    55136190.000                 #
-PartialSortBenchmark.array:stableSort                    INT               2    10000       10000000  avgt    5           5.000                 #
 PartialSortBenchmark.collectionSort                      INT               2       -1          10000  avgt    5           2.677 ±    0.050  ms/op
-PartialSortBenchmark.collectionSort:comparisons          INT               2       -1          10000  avgt    5      602180.000                 #
-PartialSortBenchmark.collectionSort:stableSort           INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.collectionSort                      INT               2       -1        1000000  avgt    5         675.715 ±    8.140  ms/op
-PartialSortBenchmark.collectionSort:comparisons          INT               2       -1        1000000  avgt    5    93203005.000                 #
-PartialSortBenchmark.collectionSort:stableSort           INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.collectionSort                      INT               2       -1       10000000  avgt    5       14991.689 ±  582.505  ms/op
-PartialSortBenchmark.collectionSort:comparisons          INT               2       -1       10000000  avgt    5  1101232840.000                 #
-PartialSortBenchmark.collectionSort:stableSort           INT               2       -1       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.collectionSort                      INT               2    10000          10000  avgt    5           2.696 ±    0.069  ms/op
-PartialSortBenchmark.collectionSort:comparisons          INT               2    10000          10000  avgt    5      602180.000                 #
-PartialSortBenchmark.collectionSort:stableSort           INT               2    10000          10000  avgt    5           5.000                 #
 PartialSortBenchmark.limitSort                           INT               2       -1          10000  avgt    5           3.217 ±    0.026  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2       -1          10000  avgt    5      602180.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2       -1        1000000  avgt    5         695.830 ±   24.271  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2       -1        1000000  avgt    5    93203005.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2       -1       10000000  avgt    5       12227.528 ±  688.756  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2       -1       10000000  avgt    5  1101232840.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2       -1       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2       10          10000  avgt    5           0.134 ±    0.006  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2       10          10000  avgt    5       51335.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2       10          10000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2       10        1000000  avgt    5          19.120 ±    0.192  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2       10        1000000  avgt    5     5002195.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2       10        1000000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.limitSort                           INT               2       10       10000000  avgt    5         209.656 ±    3.066  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2       10       10000000  avgt    5    50002425.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2       10       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2      100          10000  avgt    5           0.225 ±    0.030  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2      100          10000  avgt    5       67855.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2      100          10000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.limitSort                           INT               2      100        1000000  avgt    5          17.494 ±    0.312  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2      100        1000000  avgt    5     5033400.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2      100        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2      100       10000000  avgt    5         190.760 ±    1.849  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2      100       10000000  avgt    5    50042915.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2      100       10000000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.limitSort                           INT               2    10000          10000  avgt    5           2.926 ±    0.033  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2    10000          10000  avgt    5      602180.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.limitSort                           INT               2    10000        1000000  avgt    5          44.511 ±    0.960  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2    10000        1000000  avgt    5     8607905.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2    10000        1000000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.limitSort                           INT               2    10000       10000000  avgt    5         264.085 ±    3.486  ms/op
-PartialSortBenchmark.limitSort:comparisons               INT               2    10000       10000000  avgt    5    55145260.000                 #
-PartialSortBenchmark.limitSort:stableSort                INT               2    10000       10000000  avgt    5             ≈ 0                 #
 PartialSortBenchmark.priorityQueue                       INT               2       -1          10000  avgt    5           3.240 ±    0.118  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2       -1          10000  avgt    5      688805.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2       -1        1000000  avgt    5         807.479 ±   44.496  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2       -1        1000000  avgt    5   101762120.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2       -1       10000000  avgt    5       13687.224 ±  490.889  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2       -1       10000000  avgt    5  1188369640.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2       -1       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2       10          10000  avgt    5           0.130 ±    0.001  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2       10          10000  avgt    5       52365.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2       10          10000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.priorityQueue                       INT               2       10        1000000  avgt    5          19.382 ±    0.239  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2       10        1000000  avgt    5     5003950.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2       10        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2       10       10000000  avgt    5         189.578 ±    1.390  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2       10       10000000  avgt    5    50004305.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2       10       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2      100          10000  avgt    5           0.242 ±    0.033  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2      100          10000  avgt    5       82725.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2      100          10000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.priorityQueue                       INT               2      100        1000000  avgt    5          18.101 ±    0.504  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2      100        1000000  avgt    5     5061570.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2      100        1000000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.priorityQueue                       INT               2      100       10000000  avgt    5         195.269 ±   16.674  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2      100       10000000  avgt    5    50079585.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2      100       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2    10000          10000  avgt    5           3.269 ±    0.475  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2    10000          10000  avgt    5      688805.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.priorityQueue                       INT               2    10000        1000000  avgt    5          51.985 ±    0.380  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2    10000        1000000  avgt    5    11403415.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2    10000        1000000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.priorityQueue                       INT               2    10000       10000000  avgt    5         273.024 ±    2.851  ms/op
-PartialSortBenchmark.priorityQueue:comparisons           INT               2    10000       10000000  avgt    5    59304740.000                 #
-PartialSortBenchmark.priorityQueue:stableSort            INT               2    10000       10000000  avgt    5             ≈ 0                 #
-PartialSortBenchmark.topnHeap                            INT               2       -1          10000  avgt    5           5.765 ±    0.144  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2       -1          10000  avgt    5     1199355.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2       -1        1000000  avgt    5        1610.751 ±   27.138  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2       -1        1000000  avgt    5   185962865.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2       -1       10000000  avgt    5       33493.891 ± 1268.295  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2       -1       10000000  avgt    5  2193292415.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2       -1       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2       10          10000  avgt    5           0.120 ±    0.001  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2       10          10000  avgt    5       51740.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2       10          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2       10        1000000  avgt    5          19.719 ±    0.102  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2       10        1000000  avgt    5     5002815.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2       10        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2       10       10000000  avgt    5         203.917 ±    5.885  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2       10       10000000  avgt    5    50003225.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2       10       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2      100          10000  avgt    5           0.254 ±    0.002  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2      100          10000  avgt    5       79230.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2      100          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2      100        1000000  avgt    5          18.667 ±    0.115  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2      100        1000000  avgt    5     5053500.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2      100        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2      100       10000000  avgt    5         190.828 ±    2.673  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2      100       10000000  avgt    5    50068080.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2      100       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2    10000          10000  avgt    5           6.218 ±    0.093  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2    10000          10000  avgt    5     1199355.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2    10000        1000000  avgt    5          48.821 ±    2.605  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2    10000        1000000  avgt    5    11576500.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2    10000        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap                            INT               2    10000       10000000  avgt    5         276.966 ±    4.732  ms/op
-PartialSortBenchmark.topnHeap:comparisons                INT               2    10000       10000000  avgt    5    59297525.000                 #
-PartialSortBenchmark.topnHeap:stableSort                 INT               2    10000       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2       -1          10000  avgt    5           4.248 ±    0.071  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2       -1          10000  avgt    5      637900.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2       -1        1000000  avgt    5        1298.834 ±   48.269  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2       -1        1000000  avgt    5    96573025.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2       -1       10000000  avgt    5       24773.560 ±  586.835  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2       -1       10000000  avgt    5  1134330855.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2       -1       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2       10          10000  avgt    5           0.117 ±    0.001  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2       10          10000  avgt    5       51450.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2       10          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2       10        1000000  avgt    5          18.891 ±    0.111  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2       10        1000000  avgt    5     5002440.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2       10        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2       10       10000000  avgt    5         215.485 ±    3.842  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2       10       10000000  avgt    5    50002855.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2       10       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2      100          10000  avgt    5           0.248 ±    0.001  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2      100          10000  avgt    5       75675.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2      100          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2      100        1000000  avgt    5          18.230 ±    0.178  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2      100        1000000  avgt    5     5048815.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2      100        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2      100       10000000  avgt    5         186.772 ±    2.280  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2      100       10000000  avgt    5    50062740.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2      100       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2    10000          10000  avgt    5           4.694 ±    0.103  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2    10000          10000  avgt    5      637900.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2    10000        1000000  avgt    5          52.140 ±    2.735  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2    10000        1000000  avgt    5    10899800.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2    10000        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.topnHeap2                           INT               2    10000       10000000  avgt    5         272.420 ±    4.177  ms/op
-PartialSortBenchmark.topnHeap2:comparisons               INT               2    10000       10000000  avgt    5    58564685.000                 #
-PartialSortBenchmark.topnHeap2:stableSort                INT               2    10000       10000000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap                             INT               2       -1          10000  avgt    5           4.118 ±    0.171  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2       -1          10000  avgt    5      929830.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2       -1        1000000  avgt    5        1341.094 ±  417.618  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2       -1        1000000  avgt    5   148521915.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2       -1       10000000  avgt    5       21375.796 ± 4900.726  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2       -1       10000000  avgt    5  1758372785.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2       -1       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2       10          10000  avgt    5           1.215 ±    0.034  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2       10          10000  avgt    5      624610.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2       10          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2       10        1000000  avgt    5         109.338 ±    7.072  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2       10        1000000  avgt    5    62576080.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2       10        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2       10       10000000  avgt    5        1134.438 ±  154.786  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2       10       10000000  avgt    5   618166865.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2       10       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2      100          10000  avgt    5           2.180 ±    0.088  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2      100          10000  avgt    5     1088485.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2      100          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2      100        1000000  avgt    5         151.549 ±   25.363  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2      100        1000000  avgt    5   103910835.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2      100        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2      100       10000000  avgt    5        1670.252 ±  259.530  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2      100       10000000  avgt    5  1105964045.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2      100       10000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2    10000          10000  avgt    5           4.206 ±    0.675  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2    10000          10000  avgt    5      929830.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2    10000        1000000  avgt    5         295.440 ±   42.276  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2    10000        1000000  avgt    5   203294935.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2    10000        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap                             INT               2    10000       10000000  avgt    5        2516.091 ±  196.464  ms/op
-PartialSortBenchmark.treeMap:comparisons                 INT               2    10000       10000000  avgt    5  2030658165.000                 #
-PartialSortBenchmark.treeMap:stableSort                  INT               2    10000       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2                           INT               2       -1          10000  avgt    5           4.248 ±    0.071  ms/op
 PartialSortBenchmark.treeMap2                            INT               2       -1          10000  avgt    5           4.872 ±    0.263  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2       -1          10000  avgt    5      929830.000                 #
+PartialSortBenchmark.collectionSort:stableSort           INT               2       -1          10000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2       -1          10000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2       -1          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2       -1          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2       -1          10000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap2:stableSort                 INT               2       -1          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2       -1        1000000  avgt    5        1327.475 ±  421.040  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2       -1        1000000  avgt    5   148521915.000                 #
-PartialSortBenchmark.treeMap2:stableSort                 INT               2       -1        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2       -1       10000000  avgt    5       21285.764 ± 8538.907  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2       -1       10000000  avgt    5  1758372785.000                 #
-PartialSortBenchmark.treeMap2:stableSort                 INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2       -1          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap                            INT               2       -1          10000  avgt    5           5.765 ±    0.144  ms/op
+PartialSortBenchmark.collectionSort:comparisons          INT               2       -1          10000  avgt    5      602180.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2       -1          10000  avgt    5      602180.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2       -1          10000  avgt    5      637900.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2       -1          10000  avgt    5      688805.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2       -1          10000  avgt    5      929830.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2       -1          10000  avgt    5      929830.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2       -1          10000  avgt    5     1199355.000                 #
+
+PartialSortBenchmark.priorityQueue:stableSort            INT               2       10          10000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.topnHeap2                           INT               2       10          10000  avgt    5           0.117 ±    0.001  ms/op
+PartialSortBenchmark.topnHeap                            INT               2       10          10000  avgt    5           0.120 ±    0.001  ms/op
+PartialSortBenchmark.array                               INT               2       10          10000  avgt    5           0.125 ±    0.002  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2       10          10000  avgt    5           0.130 ±    0.001  ms/op
+PartialSortBenchmark.limitSort                           INT               2       10          10000  avgt    5           0.134 ±    0.006  ms/op
 PartialSortBenchmark.treeMap2                            INT               2       10          10000  avgt    5           0.148 ±    0.004  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2       10          10000  avgt    5       54520.000                 #
+PartialSortBenchmark.treeMap                             INT               2       10          10000  avgt    5           1.215 ±    0.034  ms/op
+PartialSortBenchmark.array:stableSort                    INT               2       10          10000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2       10          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2       10          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2       10          10000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap2:stableSort                 INT               2       10          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2       10        1000000  avgt    5          18.329 ±    2.330  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2       10        1000000  avgt    5     5007680.000                 #
-PartialSortBenchmark.treeMap2:stableSort                 INT               2       10        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2       10       10000000  avgt    5         190.691 ±    1.635  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2       10       10000000  avgt    5    50008715.000                 #
-PartialSortBenchmark.treeMap2:stableSort                 INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2       10          10000  avgt    5           5.000                 #
+PartialSortBenchmark.array:comparisons                   INT               2       10          10000  avgt    5       51295.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2       10          10000  avgt    5       51335.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2       10          10000  avgt    5       51450.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2       10          10000  avgt    5       51740.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2       10          10000  avgt    5       52365.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2       10          10000  avgt    5       54520.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2       10          10000  avgt    5      624610.000                 #
+
+PartialSortBenchmark.limitSort:stableSort                INT               2      100          10000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2      100          10000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.array                               INT               2      100          10000  avgt    5           0.210 ±    0.001  ms/op
+PartialSortBenchmark.limitSort                           INT               2      100          10000  avgt    5           0.225 ±    0.030  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2      100          10000  avgt    5           0.242 ±    0.033  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2      100          10000  avgt    5           0.248 ±    0.001  ms/op
+PartialSortBenchmark.topnHeap                            INT               2      100          10000  avgt    5           0.254 ±    0.002  ms/op
 PartialSortBenchmark.treeMap2                            INT               2      100          10000  avgt    5           0.342 ±    0.062  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2      100          10000  avgt    5      106170.000                 #
+PartialSortBenchmark.treeMap                             INT               2      100          10000  avgt    5           2.180 ±    0.088  ms/op
+PartialSortBenchmark.array:stableSort                    INT               2      100          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2      100          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2      100          10000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap2:stableSort                 INT               2      100          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2      100        1000000  avgt    5          20.900 ±    0.380  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2      100        1000000  avgt    5     5111320.000                 #
-PartialSortBenchmark.treeMap2:stableSort                 INT               2      100        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2      100       10000000  avgt    5         222.935 ±    2.201  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2      100       10000000  avgt    5    50145035.000                 #
-PartialSortBenchmark.treeMap2:stableSort                 INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2      100          10000  avgt    5           5.000                 #
+PartialSortBenchmark.array:comparisons                   INT               2      100          10000  avgt    5       67825.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2      100          10000  avgt    5       67855.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2      100          10000  avgt    5       75675.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2      100          10000  avgt    5       79230.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2      100          10000  avgt    5       82725.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2      100          10000  avgt    5      106170.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2      100          10000  avgt    5     1088485.000                 #
+
+PartialSortBenchmark.collectionSort                      INT               2    10000          10000  avgt    5           2.696 ±    0.069  ms/op
+PartialSortBenchmark.limitSort                           INT               2    10000          10000  avgt    5           2.926 ±    0.033  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2    10000          10000  avgt    5           3.269 ±    0.475  ms/op
 PartialSortBenchmark.treeMap2                            INT               2    10000          10000  avgt    5           4.064 ±    0.085  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2    10000          10000  avgt    5      929830.000                 #
+PartialSortBenchmark.treeMap                             INT               2    10000          10000  avgt    5           4.206 ±    0.675  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2    10000          10000  avgt    5           4.694 ±    0.103  ms/op
+PartialSortBenchmark.array:stableSort                    INT               2    10000          10000  avgt    5           5.000                 #
+PartialSortBenchmark.collectionSort:stableSort           INT               2    10000          10000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2    10000          10000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2    10000          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2    10000          10000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2    10000          10000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap2:stableSort                 INT               2    10000          10000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2    10000        1000000  avgt    5          64.221 ±    1.617  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2    10000        1000000  avgt    5    16111000.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2    10000          10000  avgt    5           5.000                 #
+PartialSortBenchmark.array                               INT               2    10000          10000  avgt    5           5.374 ±    0.183  ms/op
+PartialSortBenchmark.topnHeap                            INT               2    10000          10000  avgt    5           6.218 ±    0.093  ms/op
+PartialSortBenchmark.array:comparisons                   INT               2    10000          10000  avgt    5      595065.000                 #
+PartialSortBenchmark.collectionSort:comparisons          INT               2    10000          10000  avgt    5      602180.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2    10000          10000  avgt    5      602180.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2    10000          10000  avgt    5      637900.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2    10000          10000  avgt    5      688805.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2    10000          10000  avgt    5      929830.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2    10000          10000  avgt    5      929830.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2    10000          10000  avgt    5     1199355.000                 #
+
+PartialSortBenchmark.collectionSort:stableSort           INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2:stableSort                 INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2       -1        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.collectionSort                      INT               2       -1        1000000  avgt    5         675.715 ±    8.140  ms/op
+PartialSortBenchmark.limitSort                           INT               2       -1        1000000  avgt    5         695.830 ±   24.271  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2       -1        1000000  avgt    5         807.479 ±   44.496  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2       -1        1000000  avgt    5        1298.834 ±   48.269  ms/op
+PartialSortBenchmark.treeMap2                            INT               2       -1        1000000  avgt    5        1327.475 ±  421.040  ms/op
+PartialSortBenchmark.treeMap                             INT               2       -1        1000000  avgt    5        1341.094 ±  417.618  ms/op
+PartialSortBenchmark.topnHeap                            INT               2       -1        1000000  avgt    5        1610.751 ±   27.138  ms/op
+PartialSortBenchmark.collectionSort:comparisons          INT               2       -1        1000000  avgt    5    93203005.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2       -1        1000000  avgt    5    93203005.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2       -1        1000000  avgt    5    96573025.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2       -1        1000000  avgt    5   101762120.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2       -1        1000000  avgt    5   148521915.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2       -1        1000000  avgt    5   148521915.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2       -1        1000000  avgt    5   185962865.000                 #
+
+PartialSortBenchmark.limitSort:stableSort                INT               2       10        1000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.array:stableSort                    INT               2       10        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2       10        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2       10        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2       10        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2:stableSort                 INT               2       10        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2       10        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2                            INT               2       10        1000000  avgt    5          18.329 ±    2.330  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2       10        1000000  avgt    5          18.891 ±    0.111  ms/op
+PartialSortBenchmark.limitSort                           INT               2       10        1000000  avgt    5          19.120 ±    0.192  ms/op
+PartialSortBenchmark.array                               INT               2       10        1000000  avgt    5          19.129 ±    0.213  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2       10        1000000  avgt    5          19.382 ±    0.239  ms/op
+PartialSortBenchmark.topnHeap                            INT               2       10        1000000  avgt    5          19.719 ±    0.102  ms/op
+PartialSortBenchmark.treeMap                             INT               2       10        1000000  avgt    5         109.338 ±    7.072  ms/op
+PartialSortBenchmark.array:comparisons                   INT               2       10        1000000  avgt    5     5002160.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2       10        1000000  avgt    5     5002195.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2       10        1000000  avgt    5     5002440.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2       10        1000000  avgt    5     5002815.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2       10        1000000  avgt    5     5003950.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2       10        1000000  avgt    5     5007680.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2       10        1000000  avgt    5    62576080.000                 #
+
+PartialSortBenchmark.priorityQueue:stableSort            INT               2      100        1000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.array:stableSort                    INT               2      100        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2      100        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2      100        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2      100        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2:stableSort                 INT               2      100        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2      100        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort                           INT               2      100        1000000  avgt    5          17.494 ±    0.312  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2      100        1000000  avgt    5          18.101 ±    0.504  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2      100        1000000  avgt    5          18.230 ±    0.178  ms/op
+PartialSortBenchmark.topnHeap                            INT               2      100        1000000  avgt    5          18.667 ±    0.115  ms/op
+PartialSortBenchmark.array                               INT               2      100        1000000  avgt    5          18.987 ±    0.192  ms/op
+PartialSortBenchmark.treeMap2                            INT               2      100        1000000  avgt    5          20.900 ±    0.380  ms/op
+PartialSortBenchmark.treeMap                             INT               2      100        1000000  avgt    5         151.549 ±   25.363  ms/op
+PartialSortBenchmark.array:comparisons                   INT               2      100        1000000  avgt    5     5033020.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2      100        1000000  avgt    5     5033400.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2      100        1000000  avgt    5     5048815.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2      100        1000000  avgt    5     5053500.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2      100        1000000  avgt    5     5061570.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2      100        1000000  avgt    5     5111320.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2      100        1000000  avgt    5   103910835.000                 #
+
+PartialSortBenchmark.limitSort:stableSort                INT               2    10000        1000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2    10000        1000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.array:stableSort                    INT               2    10000        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2    10000        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2    10000        1000000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap2:stableSort                 INT               2    10000        1000000  avgt    5           5.000                 #
-PartialSortBenchmark.treeMap2                            INT               2    10000       10000000  avgt    5         392.476 ±  492.622  ms/op
-PartialSortBenchmark.treeMap2:comparisons                INT               2    10000       10000000  avgt    5    66490910.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2    10000        1000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort                           INT               2    10000        1000000  avgt    5          44.511 ±    0.960  ms/op
+PartialSortBenchmark.topnHeap                            INT               2    10000        1000000  avgt    5          48.821 ±    2.605  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2    10000        1000000  avgt    5          51.985 ±    0.380  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2    10000        1000000  avgt    5          52.140 ±    2.735  ms/op
+PartialSortBenchmark.treeMap2                            INT               2    10000        1000000  avgt    5          64.221 ±    1.617  ms/op
+PartialSortBenchmark.array                               INT               2    10000        1000000  avgt    5          65.285 ±    1.108  ms/op
+PartialSortBenchmark.treeMap                             INT               2    10000        1000000  avgt    5         295.440 ±   42.276  ms/op
+PartialSortBenchmark.array:comparisons                   INT               2    10000        1000000  avgt    5     8600800.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2    10000        1000000  avgt    5     8607905.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2    10000        1000000  avgt    5    10899800.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2    10000        1000000  avgt    5    11403415.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2    10000        1000000  avgt    5    11576500.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2    10000        1000000  avgt    5    16111000.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2    10000        1000000  avgt    5   203294935.000                 #
+
+PartialSortBenchmark.collectionSort:stableSort           INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2:stableSort                 INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2       -1       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort                           INT               2       -1       10000000  avgt    5       12227.528 ±  688.756  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2       -1       10000000  avgt    5       13687.224 ±  490.889  ms/op
+PartialSortBenchmark.collectionSort                      INT               2       -1       10000000  avgt    5       14991.689 ±  582.505  ms/op
+PartialSortBenchmark.treeMap2                            INT               2       -1       10000000  avgt    5       21285.764 ± 8538.907  ms/op
+PartialSortBenchmark.treeMap                             INT               2       -1       10000000  avgt    5       21375.796 ± 4900.726  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2       -1       10000000  avgt    5       24773.560 ±  586.835  ms/op
+PartialSortBenchmark.topnHeap                            INT               2       -1       10000000  avgt    5       33493.891 ± 1268.295  ms/op
+PartialSortBenchmark.collectionSort:comparisons          INT               2       -1       10000000  avgt    5  1101232840.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2       -1       10000000  avgt    5  1101232840.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2       -1       10000000  avgt    5  1134330855.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2       -1       10000000  avgt    5  1188369640.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2       -1       10000000  avgt    5  1758372785.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2       -1       10000000  avgt    5  1758372785.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2       -1       10000000  avgt    5  2193292415.000                 #
+
+PartialSortBenchmark.array:stableSort                    INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort:stableSort                INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2:stableSort                 INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2       10       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue                       INT               2       10       10000000  avgt    5         189.578 ±    1.390  ms/op
+PartialSortBenchmark.treeMap2                            INT               2       10       10000000  avgt    5         190.691 ±    1.635  ms/op
+PartialSortBenchmark.array                               INT               2       10       10000000  avgt    5         199.443 ±    2.441  ms/op
+PartialSortBenchmark.topnHeap                            INT               2       10       10000000  avgt    5         203.917 ±    5.885  ms/op
+PartialSortBenchmark.limitSort                           INT               2       10       10000000  avgt    5         209.656 ±    3.066  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2       10       10000000  avgt    5         215.485 ±    3.842  ms/op
+PartialSortBenchmark.treeMap                             INT               2       10       10000000  avgt    5        1134.438 ±  154.786  ms/op
+PartialSortBenchmark.limitSort:comparisons               INT               2       10       10000000  avgt    5    50002425.000                 #
+PartialSortBenchmark.array:comparisons                   INT               2       10       10000000  avgt    5    50002510.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2       10       10000000  avgt    5    50002855.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2       10       10000000  avgt    5    50003225.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2       10       10000000  avgt    5    50004305.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2       10       10000000  avgt    5    50008715.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2       10       10000000  avgt    5   618166865.000                 #
+
+PartialSortBenchmark.limitSort:stableSort                INT               2      100       10000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.array:stableSort                    INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap2:stableSort                 INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2      100       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2                           INT               2      100       10000000  avgt    5         186.772 ±    2.280  ms/op
+PartialSortBenchmark.limitSort                           INT               2      100       10000000  avgt    5         190.760 ±    1.849  ms/op
+PartialSortBenchmark.topnHeap                            INT               2      100       10000000  avgt    5         190.828 ±    2.673  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2      100       10000000  avgt    5         195.269 ±   16.674  ms/op
+PartialSortBenchmark.array                               INT               2      100       10000000  avgt    5         202.739 ±   12.578  ms/op
+PartialSortBenchmark.treeMap2                            INT               2      100       10000000  avgt    5         222.935 ±    2.201  ms/op
+PartialSortBenchmark.treeMap                             INT               2      100       10000000  avgt    5        1670.252 ±  259.530  ms/op
+PartialSortBenchmark.array:comparisons                   INT               2      100       10000000  avgt    5    50042465.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2      100       10000000  avgt    5    50042915.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2      100       10000000  avgt    5    50062740.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2      100       10000000  avgt    5    50068080.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2      100       10000000  avgt    5    50079585.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2      100       10000000  avgt    5    50145035.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2      100       10000000  avgt    5  1105964045.000                 #
+
+PartialSortBenchmark.limitSort:stableSort                INT               2    10000       10000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.priorityQueue:stableSort            INT               2    10000       10000000  avgt    5             ≈ 0                 #
+PartialSortBenchmark.array:stableSort                    INT               2    10000       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap2:stableSort                INT               2    10000       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.topnHeap:stableSort                 INT               2    10000       10000000  avgt    5           5.000                 #
 PartialSortBenchmark.treeMap2:stableSort                 INT               2    10000       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.treeMap:stableSort                  INT               2    10000       10000000  avgt    5           5.000                 #
+PartialSortBenchmark.limitSort                           INT               2    10000       10000000  avgt    5         264.085 ±    3.486  ms/op
+PartialSortBenchmark.topnHeap2                           INT               2    10000       10000000  avgt    5         272.420 ±    4.177  ms/op
+PartialSortBenchmark.priorityQueue                       INT               2    10000       10000000  avgt    5         273.024 ±    2.851  ms/op
+PartialSortBenchmark.topnHeap                            INT               2    10000       10000000  avgt    5         276.966 ±    4.732  ms/op
+PartialSortBenchmark.array                               INT               2    10000       10000000  avgt    5         308.001 ±    6.237  ms/op
+PartialSortBenchmark.treeMap2                            INT               2    10000       10000000  avgt    5         392.476 ±  492.622  ms/op
+PartialSortBenchmark.treeMap                             INT               2    10000       10000000  avgt    5        2516.091 ±  196.464  ms/op
+PartialSortBenchmark.array:comparisons                   INT               2    10000       10000000  avgt    5    55136190.000                 #
+PartialSortBenchmark.limitSort:comparisons               INT               2    10000       10000000  avgt    5    55145260.000                 #
+PartialSortBenchmark.topnHeap2:comparisons               INT               2    10000       10000000  avgt    5    58564685.000                 #
+PartialSortBenchmark.topnHeap:comparisons                INT               2    10000       10000000  avgt    5    59297525.000                 #
+PartialSortBenchmark.priorityQueue:comparisons           INT               2    10000       10000000  avgt    5    59304740.000                 #
+PartialSortBenchmark.treeMap2:comparisons                INT               2    10000       10000000  avgt    5    66490910.000                 #
+PartialSortBenchmark.treeMap:comparisons                 INT               2    10000       10000000  avgt    5  2030658165.000                 #
+
