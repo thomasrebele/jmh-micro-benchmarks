@@ -2185,69 +2185,79 @@ the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from th
 Do not assume the numbers tell you what you want them to tell.
 
 Benchmark               (toCopy)   Mode  Cnt      Score      Error   Units
-Arraycopy.arrayCopy            0  thrpt    5  42902.296 ±  339.445  ops/ms
-Arraycopy.arrayCopy            1  thrpt    5  35977.350 ± 1784.354  ops/ms
-Arraycopy.arrayCopy            2  thrpt    5  35650.304 ±   65.346  ops/ms
-Arraycopy.arrayCopy            3  thrpt    5  34693.879 ±   83.515  ops/ms
-Arraycopy.arrayCopy            4  thrpt    5  33086.526 ±   98.321  ops/ms
-Arraycopy.arrayCopy            5  thrpt    5  32668.581 ±   94.062  ops/ms
-Arraycopy.arrayCopy            6  thrpt    5  33591.224 ±  227.170  ops/ms
-Arraycopy.arrayCopy            7  thrpt    5  32467.683 ± 3028.225  ops/ms
-Arraycopy.arrayCopy            8  thrpt    5  33984.733 ±  179.547  ops/ms
-Arraycopy.arrayCopy            9  thrpt    5  32631.859 ±   93.876  ops/ms
-Arraycopy.arrayCopy           10  thrpt    5  32108.109 ± 3017.296  ops/ms
-Arraycopy.combined1            0  thrpt    5  43915.528 ±  265.919  ops/ms
-Arraycopy.combined1            1  thrpt    5  40498.172 ±  251.939  ops/ms
-Arraycopy.combined1            2  thrpt    5  39197.169 ±  584.866  ops/ms
-Arraycopy.combined1            3  thrpt    5  36959.306 ±  195.982  ops/ms
-Arraycopy.combined1            4  thrpt    5  34983.259 ±   28.469  ops/ms
-Arraycopy.combined1            5  thrpt    5  33635.018 ± 1489.833  ops/ms
-Arraycopy.combined1            6  thrpt    5  34387.704 ±  306.352  ops/ms
-Arraycopy.combined1            7  thrpt    5  33961.685 ±  343.525  ops/ms
-Arraycopy.combined1            8  thrpt    5  32792.878 ±  189.881  ops/ms
-Arraycopy.combined1            9  thrpt    5  33774.198 ±  382.675  ops/ms
-Arraycopy.combined1           10  thrpt    5  33727.907 ±  195.347  ops/ms
-Arraycopy.combined2            0  thrpt    5  45512.684 ±   80.023  ops/ms
-Arraycopy.combined2            1  thrpt    5  40790.495 ±   57.324  ops/ms
-Arraycopy.combined2            2  thrpt    5  39020.786 ±  245.894  ops/ms
-Arraycopy.combined2            3  thrpt    5  35090.971 ±  183.770  ops/ms
-Arraycopy.combined2            4  thrpt    5  34975.631 ±  285.287  ops/ms
-Arraycopy.combined2            5  thrpt    5  33378.283 ±  162.393  ops/ms
-Arraycopy.combined2            6  thrpt    5  34567.974 ±   64.935  ops/ms
-Arraycopy.combined2            7  thrpt    5  32722.934 ±  219.346  ops/ms
-Arraycopy.combined2            8  thrpt    5  34786.480 ±  348.551  ops/ms
-Arraycopy.combined2            9  thrpt    5  33988.802 ±  335.381  ops/ms
-Arraycopy.combined2           10  thrpt    5  34155.617 ±  121.061  ops/ms
-Arraycopy.loop                 0  thrpt    5  46167.784 ±  123.555  ops/ms
-Arraycopy.loop                 1  thrpt    5  42149.995 ±  741.320  ops/ms
-Arraycopy.loop                 2  thrpt    5  39017.066 ±  400.596  ops/ms
-Arraycopy.loop                 3  thrpt    5  35995.810 ±  291.619  ops/ms
-Arraycopy.loop                 4  thrpt    5  35382.549 ± 1081.326  ops/ms
-Arraycopy.loop                 5  thrpt    5  34101.310 ±  203.493  ops/ms
-Arraycopy.loop                 6  thrpt    5  32018.722 ±   41.414  ops/ms
-Arraycopy.loop                 7  thrpt    5  31207.796 ±   62.085  ops/ms
-Arraycopy.loop                 8  thrpt    5  29915.842 ±  207.116  ops/ms
-Arraycopy.loop                 9  thrpt    5  28493.545 ±  177.453  ops/ms
-Arraycopy.loop                10  thrpt    5  27009.721 ±  119.281  ops/ms
 Arraycopy.manual               0  thrpt    5  46259.780 ±  170.383  ops/ms
-Arraycopy.manual               1  thrpt    5  41438.759 ±  373.330  ops/ms
-Arraycopy.manual               2  thrpt    5  38822.890 ±  485.425  ops/ms
-Arraycopy.manual               3  thrpt    5  37340.614 ±  564.277  ops/ms
-Arraycopy.manual               4  thrpt    5  37156.925 ±  183.982  ops/ms
-Arraycopy.manual               5  thrpt    5  36729.582 ±   71.025  ops/ms
-Arraycopy.manual               6  thrpt    5  35487.442 ±  198.246  ops/ms
-Arraycopy.manual               7  thrpt    5  33594.846 ±  333.722  ops/ms
-Arraycopy.manual               8  thrpt    5  31862.117 ±   82.241  ops/ms
-Arraycopy.manual               9  thrpt    5  30371.258 ±  342.522  ops/ms
-Arraycopy.manual              10  thrpt    5  29625.489 ±  125.124  ops/ms
+Arraycopy.loop                 0  thrpt    5  46167.784 ±  123.555  ops/ms
+Arraycopy.combined2            0  thrpt    5  45512.684 ±   80.023  ops/ms
 Arraycopy.manualSwitch         0  thrpt    5  44515.368 ±  930.981  ops/ms
+Arraycopy.combined1            0  thrpt    5  43915.528 ±  265.919  ops/ms
+Arraycopy.arrayCopy            0  thrpt    5  42902.296 ±  339.445  ops/ms
+
+Arraycopy.loop                 1  thrpt    5  42149.995 ±  741.320  ops/ms
+Arraycopy.manual               1  thrpt    5  41438.759 ±  373.330  ops/ms
 Arraycopy.manualSwitch         1  thrpt    5  40999.657 ± 1003.156  ops/ms
+Arraycopy.combined2            1  thrpt    5  40790.495 ±   57.324  ops/ms
+Arraycopy.combined1            1  thrpt    5  40498.172 ±  251.939  ops/ms
+Arraycopy.arrayCopy            1  thrpt    5  35977.350 ± 1784.354  ops/msa
+
+Arraycopy.combined1            2  thrpt    5  39197.169 ±  584.866  ops/ms
+Arraycopy.combined2            2  thrpt    5  39020.786 ±  245.894  ops/ms
+Arraycopy.loop                 2  thrpt    5  39017.066 ±  400.596  ops/ms
+Arraycopy.manual               2  thrpt    5  38822.890 ±  485.425  ops/ms
 Arraycopy.manualSwitch         2  thrpt    5  38671.031 ± 1388.410  ops/ms
+Arraycopy.arrayCopy            2  thrpt    5  35650.304 ±   65.346  ops/ms
+
+Arraycopy.manual               3  thrpt    5  37340.614 ±  564.277  ops/ms
+Arraycopy.combined1            3  thrpt    5  36959.306 ±  195.982  ops/ms
 Arraycopy.manualSwitch         3  thrpt    5  36906.475 ± 2039.084  ops/ms
+Arraycopy.loop                 3  thrpt    5  35995.810 ±  291.619  ops/ms
+Arraycopy.combined2            3  thrpt    5  35090.971 ±  183.770  ops/ms
+Arraycopy.arrayCopy            3  thrpt    5  34693.879 ±   83.515  ops/ms
+
+Arraycopy.manual               4  thrpt    5  37156.925 ±  183.982  ops/ms
 Arraycopy.manualSwitch         4  thrpt    5  36152.612 ±  235.666  ops/ms
+Arraycopy.loop                 4  thrpt    5  35382.549 ± 1081.326  ops/ms
+Arraycopy.combined1            4  thrpt    5  34983.259 ±   28.469  ops/ms
+Arraycopy.combined2            4  thrpt    5  34975.631 ±  285.287  ops/ms
+Arraycopy.arrayCopy            4  thrpt    5  33086.526 ±   98.321  ops/ms
+
+Arraycopy.manual               5  thrpt    5  36729.582 ±   71.025  ops/ms
+Arraycopy.loop                 5  thrpt    5  34101.310 ±  203.493  ops/ms
+Arraycopy.combined1            5  thrpt    5  33635.018 ± 1489.833  ops/ms
+Arraycopy.combined2            5  thrpt    5  33378.283 ±  162.393  ops/ms
 Arraycopy.manualSwitch         5  thrpt    5  33221.517 ±  133.232  ops/ms
+Arraycopy.arrayCopy            5  thrpt    5  32668.581 ±   94.062  ops/ms
+
+Arraycopy.manual               6  thrpt    5  35487.442 ±  198.246  ops/ms
+Arraycopy.combined2            6  thrpt    5  34567.974 ±   64.935  ops/ms
+Arraycopy.combined1            6  thrpt    5  34387.704 ±  306.352  ops/ms
+Arraycopy.arrayCopy            6  thrpt    5  33591.224 ±  227.170  ops/ms
 Arraycopy.manualSwitch         6  thrpt    5  32864.062 ±  145.543  ops/ms
+Arraycopy.loop                 6  thrpt    5  32018.722 ±   41.414  ops/ms
+
+Arraycopy.combined1            7  thrpt    5  33961.685 ±  343.525  ops/ms
+Arraycopy.manual               7  thrpt    5  33594.846 ±  333.722  ops/ms
+Arraycopy.combined2            7  thrpt    5  32722.934 ±  219.346  ops/ms
+Arraycopy.arrayCopy            7  thrpt    5  32467.683 ± 3028.225  ops/ms
 Arraycopy.manualSwitch         7  thrpt    5  31225.387 ±   82.838  ops/ms
+Arraycopy.loop                 7  thrpt    5  31207.796 ±   62.085  ops/ms
+
+Arraycopy.combined2            8  thrpt    5  34786.480 ±  348.551  ops/ms
+Arraycopy.arrayCopy            8  thrpt    5  33984.733 ±  179.547  ops/ms
+Arraycopy.combined1            8  thrpt    5  32792.878 ±  189.881  ops/ms
+Arraycopy.manual               8  thrpt    5  31862.117 ±   82.241  ops/ms
+Arraycopy.loop                 8  thrpt    5  29915.842 ±  207.116  ops/ms
 Arraycopy.manualSwitch         8  thrpt    5  29771.132 ±  109.022  ops/ms
+
+Arraycopy.combined2            9  thrpt    5  33988.802 ±  335.381  ops/ms
+Arraycopy.combined1            9  thrpt    5  33774.198 ±  382.675  ops/ms
+Arraycopy.arrayCopy            9  thrpt    5  32631.859 ±   93.876  ops/ms
+Arraycopy.manual               9  thrpt    5  30371.258 ±  342.522  ops/ms
+Arraycopy.loop                 9  thrpt    5  28493.545 ±  177.453  ops/ms
 Arraycopy.manualSwitch         9  thrpt    5  28066.517 ± 1992.383  ops/ms
+
+Arraycopy.combined2           10  thrpt    5  34155.617 ±  121.061  ops/ms
+Arraycopy.combined1           10  thrpt    5  33727.907 ±  195.347  ops/ms
+Arraycopy.arrayCopy           10  thrpt    5  32108.109 ± 3017.296  ops/ms
+Arraycopy.manual              10  thrpt    5  29625.489 ±  125.124  ops/ms
+Arraycopy.loop                10  thrpt    5  27009.721 ±  119.281  ops/ms
 Arraycopy.manualSwitch        10  thrpt    5  26639.210 ±  292.871  ops/ms
