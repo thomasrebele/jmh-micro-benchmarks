@@ -330,6 +330,15 @@ public class PartialSortBenchmark {
         return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount);
     }
 
+    @Benchmark
+    public Object limitSort(QueryState iState, Counters cmpCount) {
+        LimitSort<Record> min = new LimitSort<>(iState.comparator, iState.limit);
+        for (Record i : iState.data) {
+            min.offer(i);
+        }
+        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount);
+    }
+
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder().include(PartialSortBenchmark.class.getSimpleName()).forks(1).build();
         new Runner(opt).run();
