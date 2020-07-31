@@ -8,6 +8,7 @@ import com.github.zabetak.benchmark.PartialSortBenchmark.Record;
 public class LimitSort<E> {
 
     private static int INIT_ARRAY = 512 / 2;
+    private static int MAX_MOVE_FOR_PARTIAL_INSERT = 1024; // 24;
 
     static class Etmp {
         Object o;
@@ -23,6 +24,8 @@ public class LimitSort<E> {
     private Comparator<? super Object> cmp;
     private int limit;
     private int size = 0;
+
+    private int offered = 0;
 
     /**
      * End of array contains all relevant elements and is sorted between
@@ -83,12 +86,14 @@ public class LimitSort<E> {
             return;
         }
 
-        if (tail < completeFrom)
-            sort();
+        boolean manyToInsert = size > MAX_MOVE_FOR_PARTIAL_INSERT && toInsert.size() > size / 8;
+        if (tail < completeFrom || manyToInsert)
+            sort(manyToInsert);
 
         if (cmp.compare(content[tail], e) <= 0)
             return;
 
+        offered++;
         int idx = binarySearch(e);
         // we can just replace the tail
         if (idx == tail && idx > completeFrom) {
@@ -105,17 +110,16 @@ public class LimitSort<E> {
         toInsert.add(n);
     }
 
-    private void markSorted() {
-        tail = size - 1;
-        completeFrom = 0;
-    }
-
-    private void sort() {
+    private void sort(boolean complete) {
         if (this.toInsert.isEmpty()) {
             Arrays.sort(content, 0, size, cmp);
-            markSorted();
+            tail = size - 1;
+            completeFrom = 0;
             return;
         }
+
+        if (toInsert.isEmpty())
+            return;
 
         toInsert.sort((a, b) -> {
             int c = Integer.compare(a.idx, b.idx);
@@ -124,12 +128,19 @@ public class LimitSort<E> {
             return cmp.compare(a.o, b.o);
         });
 
-        // TODO tre possible attack: force copying of a big slice after every other new
-        // element. Avoid by analyzing toInsert and process a part.
+        int keep = complete ? 0 : getToInsertKeep();
+        // keep = 0;
+        assert keep >= 0;
+        assert keep < toInsert.size();
 
-        int contentOutIdx = size;
+        System.out.print("s " + size + " t " + tail + " o " + offered + "\t insert " + (toInsert.size() - keep)
+                + " \t before sort: " + toInsert.size() + "  ");
+        offered = 0;
+
+        int contentOutIdx = size - keep;
         int contentInIdx = tail + 1;
-        for (int i = toInsert.size(); i-- > 0;) {
+        int lastMove = contentInIdx;
+        for (int i = toInsert.size(); i-- > keep;) {
             Etmp tmp = toInsert.get(i);
             int dst = tmp.idx;
             int len = contentInIdx - dst;
@@ -147,13 +158,41 @@ public class LimitSort<E> {
 
             content[--contentOutIdx] = tmp.o;
         }
-        toInsert.clear();
-        markSorted();
+        System.out.print("\tmove " + (lastMove - contentInIdx) + " \t(" + contentInIdx + "-" + lastMove + " to "
+                + (size - keep) + ")");
+        toInsert.subList(keep, toInsert.size()).clear();
+        tail = size - keep - 1;
+        completeFrom = keep == 0 ? 0 : toInsert.get(keep - 1).idx;
+
+        System.out.print("\t cF: " + completeFrom);
+        if (!toInsert.isEmpty()) {
+            System.out.print("\t now last toInsert: " + toInsert.get(toInsert.size() - 1).idx);
+        }
+        System.out.println("  ");
+    }
+
+    // TODO tre possible attack: force copying of a big slice after every other new
+    // element. Avoid by analyzing toInsert and process a part.
+    private int getToInsertKeep() {
+        if (size < MAX_MOVE_FOR_PARTIAL_INSERT)
+            return 0;
+
+        int last = tail;
+        int i = toInsert.size() - 1;
+        while (i-- > 0) {
+            Etmp tmp = toInsert.get(i);
+            if (last - tmp.idx > MAX_MOVE_FOR_PARTIAL_INSERT)
+                return i + 1;
+            last = tmp.idx;
+        }
+
+        // TODO tre implement
+        return 0;
     }
 
     @SuppressWarnings("unchecked")
     public Iterable<E> getResult() {
-        sort();
+        sort(true);
         Object[] result = content;
         content = null;
         if (this.size == result.length) {
