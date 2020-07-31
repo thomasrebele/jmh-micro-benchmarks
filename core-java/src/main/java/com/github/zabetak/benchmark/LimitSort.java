@@ -25,8 +25,6 @@ public class LimitSort<E> {
     private int limit;
     private int size = 0;
 
-    private int offered = 0;
-
     /**
      * End of array contains all relevant elements and is sorted between
      * completeFrom and tail. In other words: no elements of toInsert need to be
@@ -93,7 +91,6 @@ public class LimitSort<E> {
         if (cmp.compare(content[tail], e) <= 0)
             return;
 
-        offered++;
         int idx = binarySearch(e);
         // we can just replace the tail
         if (idx == tail && idx > completeFrom) {
@@ -129,17 +126,11 @@ public class LimitSort<E> {
         });
 
         int keep = complete ? 0 : getToInsertKeep();
-        // keep = 0;
         assert keep >= 0;
         assert keep < toInsert.size();
 
-        System.out.print("s " + size + " t " + tail + " o " + offered + "\t insert " + (toInsert.size() - keep)
-                + " \t before sort: " + toInsert.size() + "  ");
-        offered = 0;
-
         int contentOutIdx = size - keep;
         int contentInIdx = tail + 1;
-        int lastMove = contentInIdx;
         for (int i = toInsert.size(); i-- > keep;) {
             Etmp tmp = toInsert.get(i);
             int dst = tmp.idx;
@@ -158,17 +149,9 @@ public class LimitSort<E> {
 
             content[--contentOutIdx] = tmp.o;
         }
-        System.out.print("\tmove " + (lastMove - contentInIdx) + " \t(" + contentInIdx + "-" + lastMove + " to "
-                + (size - keep) + ")");
         toInsert.subList(keep, toInsert.size()).clear();
         tail = size - keep - 1;
         completeFrom = keep == 0 ? 0 : toInsert.get(keep - 1).idx;
-
-        System.out.print("\t cF: " + completeFrom);
-        if (!toInsert.isEmpty()) {
-            System.out.print("\t now last toInsert: " + toInsert.get(toInsert.size() - 1).idx);
-        }
-        System.out.println("  ");
     }
 
     // TODO tre possible attack: force copying of a big slice after every other new
@@ -186,7 +169,6 @@ public class LimitSort<E> {
             last = tmp.idx;
         }
 
-        // TODO tre implement
         return 0;
     }
 
