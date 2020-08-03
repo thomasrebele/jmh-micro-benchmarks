@@ -67,7 +67,7 @@ public class PartialSortBenchmark {
      * Calculates a checksum over the result so that it can be verified. It forces
      * the implementations to iterate once in-order over the result.
      */
-    private static class Checksum {
+    static class Checksum {
         long h = 0;
         long hStable = 0;
 
@@ -122,13 +122,17 @@ public class PartialSortBenchmark {
         private long cmpCalls = 0;
 
         /** Has to be submitted, otherwise the result will not be accepted */
-        Checksum submitChecksum(Checksum c, Counters cmpCount) {
+        Checksum submitChecksum(Checksum c, Counters cmpCount, boolean assertStableSort) {
             proposedChecksum = c;
             if (cmpCount != null) {
                 cmpCount.comparisons = cmpCalls;
                 cmpCount.stableSort = 0;
-                if (proposedChecksum != null)
-                    cmpCount.stableSort = (proposedChecksum.hStable == checksum.hStable) ? 1 : 0;
+                if (proposedChecksum != null) {
+                    boolean wasStable = proposedChecksum.hStable == checksum.hStable;
+                    cmpCount.stableSort = wasStable ? 1 : 0;
+                    if(assertStableSort && !wasStable)
+                    	throw new IllegalStateException("checksum was " + proposedChecksum.hStable + " but should have been " + checksum.hStable);
+                }
             }
             this.cmpCalls = 0;
             return c;
@@ -221,7 +225,7 @@ public class PartialSortBenchmark {
         }
         Checksum c = new Checksum();
         map.forEach((k, v) -> v.forEach(c::add));
-        return iState.submitChecksum(c, cmpCount);
+        return iState.submitChecksum(c, cmpCount, true);
     }
 
     @Benchmark
@@ -240,7 +244,7 @@ public class PartialSortBenchmark {
         }
         Checksum c = new Checksum();
         map.forEach((k, v) -> v.forEach(c::add));
-        return iState.submitChecksum(c, cmpCount);
+        return iState.submitChecksum(c, cmpCount, true);
     }
 
     @Benchmark
@@ -249,7 +253,7 @@ public class PartialSortBenchmark {
             return ignoreTrial();
         List<Record> list = new ArrayList<>(iState.data);
         Collections.sort(list, iState.comparator);
-        return iState.submitChecksum(Checksum.of(list), cmpCount);
+        return iState.submitChecksum(Checksum.of(list), cmpCount, true);
     }
 
     @Benchmark
@@ -271,7 +275,7 @@ public class PartialSortBenchmark {
         }
         Record[] arr = pq.toArray(new Record[iState.limit < 0 ? pq.size() : iState.limit]);
         Arrays.sort(arr, iState.comparator);
-        return iState.submitChecksum(Checksum.of(arr), cmpCount);
+        return iState.submitChecksum(Checksum.of(arr), cmpCount, false);
     }
 
     @Benchmark
@@ -301,7 +305,7 @@ public class PartialSortBenchmark {
                     list.add(-index - 1, i);
             }
         }
-        return state.submitChecksum(Checksum.of(list), cmpCount);
+        return state.submitChecksum(Checksum.of(list), cmpCount, false);
     }
 
     @Benchmark
@@ -311,7 +315,7 @@ public class PartialSortBenchmark {
         for (Record i : iState.data) {
             min.offer(i);
         }
-        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount);
+        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount, true);
     }
 
     @Benchmark
@@ -321,7 +325,7 @@ public class PartialSortBenchmark {
         for (Record i : iState.data) {
             min.offer(i);
         }
-        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount);
+        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount, true);
     }
 
     @Benchmark
@@ -330,7 +334,7 @@ public class PartialSortBenchmark {
         for (Record i : iState.data) {
             min.offer(i);
         }
-        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount);
+        return iState.submitChecksum(Checksum.of(min.getResult()), cmpCount, true);
     }
 
     public static void main(String[] args) throws RunnerException {

@@ -68,7 +68,7 @@ public class LimitSort<E> {
         while (left <= right) {
             int middle = (left + right) >>> 1;
             int c = cmp.compare(o, content[middle]);
-            if (c > 0)
+            if (c >= 0)
                 left = middle + 1;
             else
                 right = middle - 1;
