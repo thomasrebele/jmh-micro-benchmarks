@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 2, time = 1)
-@Measurement(iterations = 5, time = 1)
+@Measurement(iterations = 10, time = 1)
 @Timeout(time = 1, timeUnit = TimeUnit.MINUTES)
 @Fork(1)
 public class PartialSortBenchmark {
